@@ -1,0 +1,25 @@
+{
+  "name": "bg222ci-project",
+  "version": "1.0.0",
+  "description": "Project 1dv430",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1dv430/bg222ci-project.git"
+  },
+  "keywords": [
+    "Node",
+    "Javascript",
+    "P5",
+    "Cordova"
+  ],
+  "author": "Boris Grubesic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1dv430/bg222ci-project/issues"
+  },
+  "homepage": "https://github.com/1dv430/bg222ci-project#readme"
+}
