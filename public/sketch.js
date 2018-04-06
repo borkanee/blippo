@@ -21,7 +21,7 @@ function setup() {
   background(0)
 
 
-  socket = io.connect('http://localhost:3000')
+  socket = io()
   socket.on('drawing', drawNew)
 }
 
