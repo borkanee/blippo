@@ -65,11 +65,12 @@ function mousePressed() {
   }
   if (mouseX < 0 || mouseX > width || mouseY < 0 || mouseY > height) {
     recorder.stop()
-    let sampleRate = soundFile.buffer.sampleRate
-    let channel1 = soundFile.buffer.getChannelData(0)
-    let channel2 = soundFile.buffer.getChannelData(1)
-    let data = { sampleRate, channel1, channel2 }
-    socket.emit('newSound', data)
+    let p5File = saveSound(soundFile, 'testfile')
+    let blob = new Blob(p5File, {
+      type: 'audio/wav'
+    });
+    socket.emit('newSound', blob)
+
   }
 }
 

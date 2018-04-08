@@ -10,7 +10,6 @@ const app = express()
 const path = require('path')
 const port = 3000
 const fs = require("fs")
-const WavEncoder = require("wav-encoder")
 
 // Create server.
 let server = require('http').createServer(app)
@@ -31,17 +30,11 @@ io.on('connection', function (socket) {
 })
 
 function uploadSound(data) {
-    console.log(typeof data.channel1)
-    let whiteNoise1sec = {
-        sampleRate: 44100,
-        channelData: [
-            data.channel1,
-            data.channel2
-        ]
-    }
-    WavEncoder.encode(whiteNoise1sec).then(buffer => {
-        fs.writeFileSync("noise.wav", new Buffer(buffer));
-    });
+
+    fs.writeFile('./songs/message.wav', data, (err) => {
+        if (err) throw err
+        console.log('saved')
+    })
 }
 
 // Listen.

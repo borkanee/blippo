@@ -11256,7 +11256,8 @@ soundRecorder = function () {
       view.setInt16(index, interleaved[i] * (32767 * volume), true);
       index += 2;
     }
-    p5.prototype.writeFile([view], name, 'wav');
+    return [view]
+    // p5.prototype.writeFile([view], name, 'wav');
   };
   // helper methods to save waves
   function interleave(leftChannel, rightChannel) {
