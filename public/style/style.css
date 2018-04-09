@@ -2,6 +2,11 @@ body {
     padding: 0;
     margin: 0;
     background-color: rgb(255, 255, 231);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;
 }
     
 canvas {
