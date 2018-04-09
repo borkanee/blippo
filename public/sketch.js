@@ -13,7 +13,7 @@ const minScale = [130.81, 146.83, 155.56, 174.61, 196.00, 207.65, 233.08, 261.63
   293.66, 311.13, 349.23, 392.00, 415.30, 466.16, 523.25]
 
 
-let socket, cnv, brush, noteLenght, freqInd, recorder, soundFIle, test
+let socket, cnv, brush, noteLenght, freqInd, recorder, soundFile, test, osc, env, songNum
 
 // Centers the sketch canvas
 function centerCanvas() {
@@ -33,6 +33,7 @@ function setup() {
   centerCanvas()
   background("white")
   frameRate(30)
+  songNum = 1
 
   socket = io.connect('http://localhost:3000/')
   socket.on('drawing', drawNew)
@@ -65,7 +66,7 @@ function mousePressed() {
   }
   if (mouseX < 0 || mouseX > width || mouseY < 0 || mouseY > height) {
     recorder.stop()
-    let p5File = saveSound(soundFile, 'testfile')
+    let p5File = saveSound(soundFile, 'song')
     let blob = new Blob(p5File, {
       type: 'audio/wav'
     });
@@ -84,21 +85,15 @@ function drawNew(data) {
 
 function makeSound(yPosition, xPosition) {
   //let reverb = new p5.Reverb()
-  let env = new p5.Env()
+  env = new p5.Env()
   noteLenght = floor(map(xPosition, 0, width, 1, 5))
-  env.setADSR(0.01, 1, 0.2, noteLenght)
-  env.setRange(0.5, 0)
-  let osc = new p5.SinOsc()
+  env.setRange(0.6, 0.0)
+  env.setADSR(0.008, 0.2, 0.9, noteLenght)
+  osc = new p5.SinOsc()
   freqInd = floor(map(yPosition, height, 0, 0, minScale.length))
   osc.freq(minScale[freqInd])
   osc.amp(env)
   osc.start()
   //reverb.process(osc, 10, 0.15)
   env.play()
-}
-
-function blobToFile(theBlob, fileName) {
-  theBlob.lastModifiedDate = new Date();
-  theBlob.name = fileName;
-  return theBlob;
 }

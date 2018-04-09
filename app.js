@@ -30,8 +30,14 @@ io.on('connection', function (socket) {
 })
 
 function uploadSound(data) {
+    let array = fs.readdirSync('./songs', (err, files) => {
+        if (err) {
+            console.log(error)
+        }
+        return files
+    })
 
-    fs.writeFile('./songs/message.wav', data, (err) => {
+    fs.writeFile(`./songs/Sketch${array.length}.wav`, data, (err) => {
         if (err) throw err
         console.log('saved')
     })
