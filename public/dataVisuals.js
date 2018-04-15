@@ -16,74 +16,48 @@ let sketch2 = function (p) {
 
     // Setup for canvas
     p.setup = function () {
-        p.createCanvas(700, 700)
 
+        p.createCanvas(700, 700)
         p.background("white")
-        p.songNum = 1
 
         p.socket = io.connect('http://localhost:3000/')
-        p.socket.on('drawing', p.drawNew)
+        p.socket.on('weather-data', p.startDrawing)
 
-        p.recorder = new p5.SoundRecorder()
-
-        // Connect the sounds from sketch to the recorder.
-        p.recorder.setInput()
-
-        // This sound file will be used to save the recording.
-        p.soundFile = new p5.SoundFile()
+        p.sel = p.select('#select-city')
+        p.sel.changed(() => p.socket.emit('new-city', p.sel.value()))
     }
 
-    // When clicking, draw circle and play synth.
-    p.mousePressed = function () {
-        p.recorder.record(p.soundFile)
-        let drawData = {
-            x: p.mouseX,
-            y: p.mouseY
+    p.startDrawing = function (data) {
+        if (p.interval) {
+            clearInterval(p.interval)
         }
-
-        p.socket.emit('drawing', drawData)
-        p.noStroke()
-        p.fill(p.random(0, 256), p.random(0, 256), p.random(0, 256), 70)
-        p.ellipse(p.mouseX, p.mouseY, 30, 30)
-
-        // Play only if pressed inside canvas.
-        if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
-            p.makeSound(p.mouseY, p.mouseX)
-        }
-        if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
-            p.recorder.stop()
-            let p5File = saveSound(p.soundFile, 'song')
-            let blob = new Blob(p5File, {
-                type: 'audio/wav'
-            })
-            p.socket.emit('newSound', blob)
-
-        }
+        console.log(data)
+        p.speed = data.wind.speed * 100
+        p.interval = setInterval(() => {
+            p.timer = true
+            let x = p.random(0, p.width)
+            let y = p.random(0, p.height)
+            p.noStroke()
+            p.fill(p.random(0, 256), p.random(0, 256), p.random(0, 256), 70)
+            p.ellipse(x, y, data.coord.lon, data.coord.lat)
+            p.makeSound(y, x)
+        }, p.speed)
     }
-
-    // Draw
-    p.drawNew = function (data) {
-        p.pnoStroke()
-        p.fill(random(0, 256), random(0, 256), random(0, 256), 70)
-        p.ellipse(data.x, data.y, 30, 30)
-        p.makeSound(data.y, data.x)
-    }
-
     p.makeSound = function (yPosition, xPosition) {
-        //let reverb = new p5.Reverb()
+        // let reverb = new p5.Reverb()
         p.env = new p5.Env()
         p.noteLenght = p.floor(p.map(xPosition, 0, p.width, 1, 5))
-        p.env.setRange(0.6, 0.0)
+        p.env.setRange(0.5, 0.0)
         p.env.setADSR(0.008, 0.2, 0.9, p.noteLenght)
         p.osc = new p5.SinOsc()
-        p.freqInd = p.floor(p.map(yPosition, p.height, 0, 0, p.minScale.length))
-        p.osc.freq(p.minScale[p.freqInd])
+        p.freqInd = p.floor(p.map(yPosition, p.height, 0, 0, p.pentScale.length))
+        p.osc.freq(p.pentScale[p.freqInd])
         p.osc.amp(p.env)
         p.osc.start()
-        //reverb.process(osc, 10, 0.15)
+        // reverb.process(osc, 10, 0.15)
         p.env.play()
     }
-
 }
 
-let dataP5 = new p5(sketch2, 'sketch-holder-data')
+
+let DataSketch = new p5(sketch2, 'sketch-holder-data')
