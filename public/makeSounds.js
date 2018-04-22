@@ -1,32 +1,28 @@
 let sketch1 = function (p) {
-  p.pentScale = [
-    130.81, 146.83, 164.81, 196.00, 220.00,
-    261.63, 293.66, 329.63, 392.00, 440.00, 523.25
-  ]
-
-  p.majorScale = [
-    130.81, 146.83, 164.81, 174.61, 196.00, 220.00,
-    246.94, 261.63, 293.66, 329.63, 349.23, 392.00,
-    440.00, 493.88, 523.25
-  ]
-
-  p.minScale = [130.81, 146.83, 155.56, 174.61, 196.00, 207.65, 233.08, 261.63,
-    293.66, 311.13, 349.23, 392.00, 415.30, 466.16, 523.25]
 
   // Setup for canvas
   p.setup = function () {
+    // p.reverb = new p5.Reverb()
+
     p.cnv = p.createCanvas(700, 700)
     p.cnv.mousePressed(p.drawCircle)
     p.background('white')
+
     p.button = p.select('#button-save')
     p.button.mousePressed(p.saveFile)
 
-    p.socket = io.connect('http://localhost:3000/')
+    p.selOsc = p.select('#select-osc-draw')
+    p.chosenOsc = p.selOsc.value()
+    p.selOsc.changed(p.changeOsc)
 
+    p.scale = majorScale
+    p.sel = p.select('#select-scale')
+    p.sel.changed(p.changeScale)
+
+    p.socket = io.connect('http://localhost:3000/')
     p.socket.on('drawing', p.drawNew)
 
     p.recorder = new p5.SoundRecorder()
-
     // Connect the sounds from sketch to the recorder.
     p.recorder.setInput()
 
@@ -61,18 +57,34 @@ let sketch1 = function (p) {
     p.makeSound(data.y, data.x)
   }
 
+  p.changeScale = function () {
+    if (p.sel.value() == "major") {
+      p.scale = majorScale
+    }
+    if (p.sel.value() == "minor") {
+      p.scale = minScale
+    }
+    if (p.sel.value() == "pentatonic") {
+      p.scale = pentScale
+    }
+  }
+
+  p.changeOsc = function () {
+    p.chosenOsc = p.selOsc.value()
+  }
+
   p.makeSound = function (yPosition, xPosition) {
-    // let reverb = new p5.Reverb()
     p.env = new p5.Env()
     p.noteLenght = p.floor(p.map(xPosition, 0, p.width, 1, 5))
-    p.env.setRange(0.6, 0.0)
     p.env.setADSR(0.008, 0.2, 0.9, p.noteLenght)
-    p.osc = new p5.SinOsc()
-    p.freqInd = p.floor(p.map(yPosition, p.height, 0, 0, p.minScale.length))
-    p.osc.freq(p.minScale[p.freqInd])
+    p.env.setRange(0.4, 0.0)
+    p.osc = new p5.Oscillator(p.chosenOsc)
+    p.freqInd = p.floor(p.map(yPosition, p.height, 0, 0, p.scale.length))
     p.osc.amp(p.env)
+    p.osc.freq(p.scale[p.freqInd])
+    //p.reverb.process(p.osc, 10, 0.15)
+    // p.reverb.amp(0.01)
     p.osc.start()
-    // reverb.process(osc, 10, 0.15)
     p.env.play()
   }
   p.saveFile = function () {
