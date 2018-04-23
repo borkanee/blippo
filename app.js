@@ -11,7 +11,6 @@ const path = require('path')
 const port = 3000
 const fs = require("fs")
 const fetch = require('node-fetch')
-const exphbs = require('express-handlebars')
 
 // Create server.
 let server = require('http').createServer(app)

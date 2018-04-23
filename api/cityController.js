@@ -8,8 +8,6 @@ module.exports.list = (req, res) => {
     }
     result = result.map(city => { return { id: city.id, name: city.name } })
 
-    // Send json response with teams - if any.
-
     res.json({
         query: req.query.q,
         count: result.length,
@@ -17,16 +15,9 @@ module.exports.list = (req, res) => {
     })
 }
 
-/**
- * Sends a JSON response containing a team.
- *
- * @param {Object} req Node.js request object
- * @param {Object} res Node.js response object
- */
 module.exports.get = (req, res) => {
     let id = Number(req.params.id)
 
-    // If the parameter id isn't an integer greater than 0 send a 400 (bad request).
     if (!id || Number.isNaN(id) || !Number.isInteger(id) || id <= 0) {
         return res.status(400).json({
             status: 400,
@@ -34,10 +25,9 @@ module.exports.get = (req, res) => {
         })
     }
 
-    // Get the first team that's id equals the parameter id.
     let city = cities.filter(city => city.id === id).shift()
 
-    // If no team is found send a 404 (resource not found).
+
     if (!city) {
         return res.status(404).json({
             status: 404,
@@ -45,6 +35,5 @@ module.exports.get = (req, res) => {
         })
     }
 
-    // Send json response with the wanted team.
     res.json(city)
 }

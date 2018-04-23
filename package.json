@@ -24,9 +24,7 @@
   },
   "homepage": "https://github.com/1dv430/bg222ci-project#readme",
   "dependencies": {
-    "autocompleter": "^1.0.30",
     "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
     "node-fetch": "^2.1.2",
     "socket.io": "^2.1.0"
   },
