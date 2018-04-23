@@ -5,22 +5,28 @@ let sketch2 = function (p) {
         p.createCanvas(700, 700)
         p.background("white")
 
-        p.socket = io.connect('http://localhost:3000/')
+        p.socket = io.connect('http://3f3f34ae.ngrok.io/')
         p.socket.on('weather-data', p.startDrawing)
+
+        p.selOsc = p.select('#select-osc-draw')
+        p.chosenOsc = p.selOsc.value()
+        p.selOsc.changed(() => p.chosenOsc = p.selOsc.value())
 
         p.scale = majorScale
         p.selScale = p.select('#select-scale-data')
         p.selScale.changed(p.changeScale)
 
-        p.selCity = p.select('#select-city')
-        p.selCity.changed(() => p.socket.emit('new-city', p.selCity.value()))
+        p.cities = document.querySelector('#city-weather')
+        p.cities.addEventListener('selected', e => {
+            p.socket.emit('new-city', e.detail.id)
+        })
     }
 
     p.startDrawing = function (data) {
         if (p.interval) {
             clearInterval(p.interval)
         }
-        p.speed = data.wind.speed * 200
+        p.speed = data.wind.speed * 100
         p.interval = setInterval(() => {
             let x = p.random(0, p.width)
             let y = p.random(0, p.height)
@@ -33,15 +39,12 @@ let sketch2 = function (p) {
 
     p.changeScale = function () {
         if (p.selScale.value() == "major") {
-            console.log('major')
             p.scale = majorScale
         }
         if (p.selScale.value() == "minor") {
-            console.log('minor')
             p.scale = minScale
         }
         if (p.selScale.value() == "pentatonic") {
-            console.log('penta')
             p.scale = pentScale
         }
     }
@@ -49,9 +52,9 @@ let sketch2 = function (p) {
         // let reverb = new p5.Reverb()
         p.env = new p5.Env()
         p.noteLenght = p.floor(p.map(xPosition, 0, p.width, 1, 5))
+        p.env.setADSR(0.008, 0.2, 0.3, p.noteLenght)
         p.env.setRange(0.5, 0.0)
-        p.env.setADSR(0.008, 0.2, 0.9, p.noteLenght)
-        p.osc = new p5.SinOsc()
+        p.osc = new p5.Oscillator(p.chosenOsc)
         p.freqInd = p.floor(p.map(yPosition, p.height, 0, 0, p.scale.length))
         p.osc.freq(p.scale[p.freqInd])
         p.osc.amp(p.env)

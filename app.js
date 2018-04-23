@@ -11,6 +11,7 @@ const path = require('path')
 const port = 3000
 const fs = require("fs")
 const fetch = require('node-fetch')
+const exphbs = require('express-handlebars')
 
 // Create server.
 let server = require('http').createServer(app)
@@ -19,6 +20,16 @@ let io = require('socket.io')(server)
 // Serve static files.
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.get('/', function (req, res) {
+    return res.sendFile(path.join(__dirname, 'views', 'sketches', 'sketch1.html'))
+})
+
+app.get('/weather-music', function (req, res) {
+    return res.sendFile(path.join(__dirname, 'views', 'sketches', 'sketch2.html'))
+})
+
+app.use('/api/cities', require('./api/routes/cityRoutes'))
+
 io.on('connection', function (socket) {
     socket.on('drawing', drawMsg)
 
@@ -26,31 +37,15 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('drawing', data)
     }
 
-    socket.on('newSound', uploadSound)
-
     socket.on('new-city', getWeather)
 
-    async function getWeather(data) {
-        let weather = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${data}&units=metric&APPID=80066155d35cbe90d3edf0ce056c6cfe`)
-        let json = await weather.json()
+    async function getWeather(id) {
+        let selectedCity = await fetch(`http://api.openweathermap.org/data/2.5/weather?id=${id}&units=metric&APPID=80066155d35cbe90d3edf0ce056c6cfe`)
+        selectedCity = await selectedCity.json()
 
-        socket.emit('weather-data', json)
+        socket.emit('weather-data', selectedCity)
     }
 })
-
-function uploadSound(data) {
-    let array = fs.readdirSync('./songs', (err, files) => {
-        if (err) {
-            console.log(error)
-        }
-        return files
-    })
-
-    fs.writeFile(`./songs/Sketch${array.length}.wav`, data, (err) => {
-        if (err) throw err
-        console.log('saved')
-    })
-}
 
 // Listen.
 server.listen(port)

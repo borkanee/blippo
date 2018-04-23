@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./libraries/p5.js"></script>
+    <script src="./libraries/p5.dom.js"></script>
+    <script src="./libraries/p5.sound.js"></script>
+    <script src="scales.js"></script>
+    <script src="makeSounds.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <button id="button-save">Save</button>
+    <div id="sketch-holder-draw">
+        <div class="select-div">
+            <select id="select-osc-draw">
+                <option value="sine" selected>Sine</option>
+                <option value="triangle">Triangle</option>
+                <option value="sawtooth">Sawtooth</option>
+                <option value="square">Square</option>
+            </select>
+        </div>
+        <div class="select-div">
+            <select id="select-scale">
+                <option value="major" selected>Major Scale</option>
+                <option value="minor">Minor Sale</option>
+                <option value="pentatonic">Pentatonic Scale</option>
+            </select>
+        </div>
+    </div>
+</body>
+
+</html>

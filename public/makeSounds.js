@@ -13,13 +13,13 @@ let sketch1 = function (p) {
 
     p.selOsc = p.select('#select-osc-draw')
     p.chosenOsc = p.selOsc.value()
-    p.selOsc.changed(p.changeOsc)
+    p.selOsc.changed(() => p.chosenOsc = p.selOsc.value())
 
     p.scale = majorScale
     p.sel = p.select('#select-scale')
     p.sel.changed(p.changeScale)
 
-    p.socket = io.connect('http://localhost:3000/')
+    p.socket = io.connect('http://3f3f34ae.ngrok.io/')
     p.socket.on('drawing', p.drawNew)
 
     p.recorder = new p5.SoundRecorder()
@@ -69,31 +69,24 @@ let sketch1 = function (p) {
     }
   }
 
-  p.changeOsc = function () {
-    p.chosenOsc = p.selOsc.value()
-  }
-
   p.makeSound = function (yPosition, xPosition) {
     p.env = new p5.Env()
     p.noteLenght = p.floor(p.map(xPosition, 0, p.width, 1, 5))
-    p.env.setADSR(0.008, 0.2, 0.9, p.noteLenght)
-    p.env.setRange(0.4, 0.0)
+    p.env.setADSR(0.008, 0.2, 0.3, p.noteLenght)
+    p.env.setRange(0.5, 0.0)
     p.osc = new p5.Oscillator(p.chosenOsc)
     p.freqInd = p.floor(p.map(yPosition, p.height, 0, 0, p.scale.length))
     p.osc.amp(p.env)
+    p.osc.start()
     p.osc.freq(p.scale[p.freqInd])
     //p.reverb.process(p.osc, 10, 0.15)
     // p.reverb.amp(0.01)
-    p.osc.start()
     p.env.play()
   }
+
   p.saveFile = function () {
     p.recorder.stop()
-    let p5File = p.saveSound(p.soundFile, 'song')
-    let blob = new window.Blob(p5File, {
-      type: 'audio/wav'
-    })
-    p.socket.emit('newSound', blob)
+    p.saveSound(p.soundFile, 'Our Song')
   }
 }
 
