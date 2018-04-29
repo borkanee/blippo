@@ -5,7 +5,7 @@ let sketch2 = function (p) {
         p.createCanvas(700, 700)
         p.background("white")
 
-        p.socket = io.connect('http://3f3f34ae.ngrok.io/')
+        p.socket = io.connect('http://localhost:3000/')
         p.socket.on('weather-data', p.startDrawing)
 
         p.selOsc = p.select('#select-osc-draw')

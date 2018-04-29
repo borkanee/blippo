@@ -35,7 +35,7 @@ class CitySelector extends window.HTMLElement {
         })
     }
     async search(str) {
-        let res = await window.fetch(`http://3f3f34ae.ngrok.io/api/cities/?q=${str}`)
+        let res = await window.fetch(`http://localhost:3000/api/cities/?q=${str}`)
         res = await res.json()
         return res.cities
     }

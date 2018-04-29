@@ -8,11 +8,24 @@
     <script src="./libraries/p5.dom.js"></script>
     <script src="./libraries/p5.sound.js"></script>
     <script src="scales.js"></script>
+    <script src="jscolor.js"></script>
     <script src="makeSounds.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <body>
+    <div id="color-settings">
+        <div>
+            Background Color:
+            <input disabled class="jscolor" id="bc-color" value="ffffff">
+        </div>
+
+        <div>
+            Shape Color:
+            <input disabled class="jscolor" id="shape-color" value="000000">
+        </div>
+    </div>
+
     <button id="button-save">Save</button>
     <div id="sketch-holder-draw">
         <div class="select-div">
