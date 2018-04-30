@@ -2,16 +2,15 @@ let sketch1 = function (p) {
 
   // Setup for canvas
   p.setup = function () {
+    p.objects = []
+
     p.cnv = p.createCanvas(p.windowWidth, 700)
     p.cnv.mousePressed(p.drawCircle)
     // p.graphics = p.createGraphics(p.windowWidth, 700)
 
-    p.background('white')
-
     p.button = p.select('#button-save')
     p.button.mousePressed(p.saveFile)
 
-    p.backgroundColor = p.select('#bc-color')
     p.shapeColor = p.select('#shape-color')
 
     p.selOsc = p.select('#select-osc-draw')
@@ -28,14 +27,19 @@ let sketch1 = function (p) {
     p.recorder = new p5.SoundRecorder()
     p.recorder.setInput()
     p.soundFile = new p5.SoundFile()
+    p.recorder.record(p.soundFile)
   }
 
   p.draw = function () {
     p.background(p.random(5, 15), 10)
+
+    for (let object of p.objects) {
+      object.show()
+      object.move()
+    }
   }
 
   p.drawCircle = function () {
-    p.recorder.record(p.soundFile)
     let drawData = {
       x: p.mouseX,
       y: p.mouseY,
@@ -44,9 +48,12 @@ let sketch1 = function (p) {
     }
 
     p.socket.emit('drawing', drawData)
-    p.noStroke()
-    p.fill('#' + p.shapeColor.value())
-    p.ellipse(p.mouseX, p.mouseY, 30, 30)
+    let circle = new Circle(p.mouseX, p.mouseY, 50, p.shapeColor.value(), p)
+    let rect = new Rectangle(p.mouseX, p.mouseY, 50, 50, p.shapeColor.value(), p)
+    let tri = new Triangle(p.mouseX, p.mouseY, p.shapeColor.value(), 60, p)
+    p.objects.push(tri)
+    p.objects.push(circle)
+    p.objects.push(rect)
 
     /*
     p.graphics.noStroke()
@@ -64,9 +71,12 @@ let sketch1 = function (p) {
   p.drawNew = function (data) {
     let osc
 
-    p.noStroke()
-    p.fill('#' + data.colors)
-    p.ellipse(data.x, data.y, 30, 30)
+    let circle = new Circle(data.x, data.y, 50, data.colors, p)
+    let rect = new Rectangle(data.x, data.y, 50, 50, data.colors, p)
+    let tri = new Triangle(data.x, data.y, data.colors, 60, p)
+    p.objects.push(tri)
+    p.objects.push(circle);
+    p.objects.push(rect);
 
     if (data.osc == p.chosenOsc) {
       osc = p.chosenOsc
@@ -80,7 +90,7 @@ let sketch1 = function (p) {
     p.graphics.noStroke()
     p.graphics.fill('#' + data.colors)
     p.graphics.ellipse(data.x, data.y, 30, 30)
-    */ 
+    */
   }
 
 
