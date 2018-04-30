@@ -2,10 +2,9 @@ let sketch1 = function (p) {
 
   // Setup for canvas
   p.setup = function () {
-
     p.cnv = p.createCanvas(p.windowWidth, 700)
     p.cnv.mousePressed(p.drawCircle)
-    p.graphics = p.createGraphics(p.windowWidth, 700)
+    // p.graphics = p.createGraphics(p.windowWidth, 700)
 
     p.background('white')
 
@@ -32,8 +31,7 @@ let sketch1 = function (p) {
   }
 
   p.draw = function () {
-    p.background('#' + p.backgroundColor.value())
-    p.image(p.graphics, 0, 0)
+    p.background(p.random(5, 15), 10)
   }
 
   p.drawCircle = function () {
@@ -50,9 +48,11 @@ let sketch1 = function (p) {
     p.fill('#' + p.shapeColor.value())
     p.ellipse(p.mouseX, p.mouseY, 30, 30)
 
+    /*
     p.graphics.noStroke()
     p.graphics.fill('#' + p.shapeColor.value())
     p.graphics.ellipse(p.mouseX, p.mouseY, 30, 30)
+    */
 
     // Play only if pressed inside canvas.
     if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
@@ -76,9 +76,11 @@ let sketch1 = function (p) {
 
     p.makeSound(data.y, data.x, osc)
 
+    /*
     p.graphics.noStroke()
     p.graphics.fill('#' + data.colors)
     p.graphics.ellipse(data.x, data.y, 30, 30)
+    */ 
   }
 
 
