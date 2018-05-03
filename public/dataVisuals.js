@@ -1,9 +1,7 @@
 let sketch2 = function (p) {
     // Setup for canvas
     p.setup = function () {
-
-        p.createCanvas(700, 700)
-        p.background("white")
+        p.createCanvas(p.windowWidth, 700)
 
         p.socket = io.connect('http://localhost:3000/')
         p.socket.on('weather-data', p.startDrawing)
@@ -20,6 +18,10 @@ let sketch2 = function (p) {
         p.cities.addEventListener('selected', e => {
             p.socket.emit('new-city', e.detail.id)
         })
+    }
+
+    p.draw = function () {
+        p.background(p.random(5, 15), 10)
     }
 
     p.startDrawing = function (data) {
@@ -49,7 +51,6 @@ let sketch2 = function (p) {
         }
     }
     p.makeSound = function (yPosition, xPosition) {
-        // let reverb = new p5.Reverb()
         p.env = new p5.Env()
         p.noteLenght = p.floor(p.map(xPosition, 0, p.width, 1, 5))
         p.env.setADSR(0.008, 0.2, 0.3, p.noteLenght)
@@ -59,7 +60,6 @@ let sketch2 = function (p) {
         p.osc.freq(p.scale[p.freqInd])
         p.osc.amp(p.env)
         p.osc.start()
-        // reverb.process(osc, 10, 0.15)
         p.env.play()
     }
 }

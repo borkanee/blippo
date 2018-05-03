@@ -17,13 +17,19 @@
 <body>
     <div id="color-settings">
         <div>
-            Shape Color:
             <input disabled class="jscolor" id="shape-color" value="82EAFF">
         </div>
     </div>
 
     <button id="button-save">Save</button>
     <div id="sketch-holder-draw">
+        <div class="select-div">
+            <select id="select-shape">
+                <option value="circle" selected>Circle</option>
+                <option value="rectangle">Rectangle</option>
+                <option value="bajs">Triangle</option>
+            </select>
+        </div>
         <div class="select-div">
             <select id="select-osc-draw">
                 <option value="sine" selected>Sine</option>

@@ -4,9 +4,10 @@ let sketch1 = function (p) {
   p.setup = function () {
     p.objects = []
 
+    p.reverb = new p5.Reverb()
+    p.reverb.set(8, 1)
     p.cnv = p.createCanvas(p.windowWidth, 700)
-    p.cnv.mousePressed(p.drawCircle)
-    // p.graphics = p.createGraphics(p.windowWidth, 700)
+    p.cnv.mousePressed(p.drawShape)
 
     p.button = p.select('#button-save')
     p.button.mousePressed(p.saveFile)
@@ -16,6 +17,11 @@ let sketch1 = function (p) {
     p.selOsc = p.select('#select-osc-draw')
     p.chosenOsc = p.selOsc.value()
     p.selOsc.changed(() => p.chosenOsc = p.selOsc.value())
+
+
+    p.selShape = p.select('#select-shape')
+    p.chosenShape = p.selShape.value()
+    p.selShape.changed(() => p.chosenShape = p.selShape.value())
 
     p.scale = majorScale
     p.sel = p.select('#select-scale')
@@ -39,44 +45,33 @@ let sketch1 = function (p) {
     }
   }
 
-  p.drawCircle = function () {
-    let drawData = {
+  p.drawShape = function () {
+    let noteLenght = p.map(p.mouseX, 0, p.width, 0.5, 5)
+
+    let shape = p.createShapeObj(p.chosenShape, p.mouseX, p.mouseY, p.shapeColor.value(), noteLenght)
+
+    let socketData = {
       x: p.mouseX,
       y: p.mouseY,
       osc: p.chosenOsc,
-      colors: p.shapeColor.value()
+      color: p.shapeColor.value(),
+      noteLenght: noteLenght,
+      chosenShape: p.chosenShape
     }
 
-    p.socket.emit('drawing', drawData)
-    let circle = new Circle(p.mouseX, p.mouseY, 50, p.shapeColor.value(), p)
-    let rect = new Rectangle(p.mouseX, p.mouseY, 50, 50, p.shapeColor.value(), p)
-    let tri = new Triangle(p.mouseX, p.mouseY, p.shapeColor.value(), 60, p)
-    p.objects.push(tri)
-    p.objects.push(circle)
-    p.objects.push(rect)
+    p.socket.emit('drawing', socketData)
+    p.objects.push(shape)
 
-    /*
-    p.graphics.noStroke()
-    p.graphics.fill('#' + p.shapeColor.value())
-    p.graphics.ellipse(p.mouseX, p.mouseY, 30, 30)
-    */
+    p.makeSound(p.mouseY, p.mouseX, noteLenght)
 
-    // Play only if pressed inside canvas.
-    if (p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height) {
-      p.makeSound(p.mouseY, p.mouseX)
-    }
   }
 
   // Incoming socket.
   p.drawNew = function (data) {
-    let osc
+    let shape = p.createShapeObj(data.chosenShape, data.x, data.y, data.color, data.noteLenght)
+    p.objects.push(shape)
 
-    let circle = new Circle(data.x, data.y, 50, data.colors, p)
-    let rect = new Rectangle(data.x, data.y, 50, 50, data.colors, p)
-    let tri = new Triangle(data.x, data.y, data.colors, 60, p)
-    p.objects.push(tri)
-    p.objects.push(circle);
-    p.objects.push(rect);
+    let osc
 
     if (data.osc == p.chosenOsc) {
       osc = p.chosenOsc
@@ -84,13 +79,19 @@ let sketch1 = function (p) {
       osc = data.osc
     }
 
-    p.makeSound(data.y, data.x, osc)
+    p.makeSound(data.y, data.x, data.noteLenght, osc)
 
-    /*
-    p.graphics.noStroke()
-    p.graphics.fill('#' + data.colors)
-    p.graphics.ellipse(data.x, data.y, 30, 30)
-    */
+  }
+
+  p.createShapeObj = function (str, xPos, yPos, color, noteLenght) {
+    switch (str) {
+      case 'circle':
+        return new Circle(xPos, yPos, 50, color, noteLenght, p)
+      case 'rectangle':
+        return new Rectangle(xPos, yPos, 50, 50, color, noteLenght, p)
+      case 'bajs':
+        return new Triangle(xPos, yPos, 60, color, noteLenght, p)
+    }
   }
 
 
@@ -106,15 +107,16 @@ let sketch1 = function (p) {
     }
   }
 
-  p.makeSound = function (yPosition, xPosition, chosenOsc = p.chosenOsc) {
+  p.makeSound = function (yPosition, xPosition, noteLenght, chosenOsc = p.chosenOsc) {
     p.env = new p5.Env()
-    p.noteLenght = p.floor(p.map(xPosition, 0, p.width, 1, 5))
-    p.env.setADSR(0.008, 0.2, 0.3, p.noteLenght)
-    p.env.setRange(0.5, 0.0)
+    p.env.setADSR(0.008, 0.2, 0.25, noteLenght)
+    p.env.setRange(0.4, 0.0)
     p.osc = new p5.Oscillator(chosenOsc)
     p.freqInd = p.floor(p.map(yPosition, p.height, 0, 0, p.scale.length))
     p.osc.amp(p.env)
     p.osc.start()
+    p.reverb.process(p.osc)
+    p.reverb.amp(1)
     p.osc.freq(p.scale[p.freqInd])
     p.env.play()
   }
