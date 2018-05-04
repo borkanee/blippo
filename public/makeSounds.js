@@ -1,7 +1,9 @@
-let sketch1 = function (p) {
+import './jscolor.js'
+import { changeScale, createShapeObj, pentScale, majorScale, minScale } from './settings.js'
 
-  // Setup for canvas
+const sketch1 = new p5(function (p) {
   p.setup = function () {
+
     p.objects = []
 
     p.reverb = new p5.Reverb()
@@ -25,7 +27,8 @@ let sketch1 = function (p) {
 
     p.scale = majorScale
     p.sel = p.select('#select-scale')
-    p.sel.changed(p.changeScale)
+
+    p.sel.changed(changeScale.bind(this))
 
     p.socket = io.connect('http://localhost:3000/')
     p.socket.on('drawing', p.drawNew)
@@ -40,21 +43,27 @@ let sketch1 = function (p) {
     p.background(p.random(5, 15), 10)
 
     for (let object of p.objects) {
-      object.show()
-      object.move()
+      if (object.value > 0.1) {
+        object.show()
+        object.move()
+      }
     }
   }
 
   p.drawShape = function () {
-    let noteLenght = p.map(p.mouseX, 0, p.width, 0.5, 5)
+    if (p.getAudioContext().state === 'suspended') {
+      p.getAudioContext().resume()
+    }
 
-    let shape = p.createShapeObj(p.chosenShape, p.mouseX, p.mouseY, p.shapeColor.value(), noteLenght)
+    let noteLenght = p.map(p.mouseX, 0, p.width, 1, 4)
+
+    let shape = createShapeObj.call(p, p.chosenShape, p.mouseX, p.mouseY, '#' + p.shapeColor.value(), noteLenght)
 
     let socketData = {
       x: p.mouseX,
       y: p.mouseY,
       osc: p.chosenOsc,
-      color: p.shapeColor.value(),
+      color: '#' + p.shapeColor.value(),
       noteLenght: noteLenght,
       chosenShape: p.chosenShape
     }
@@ -68,7 +77,11 @@ let sketch1 = function (p) {
 
   // Incoming socket.
   p.drawNew = function (data) {
-    let shape = p.createShapeObj(data.chosenShape, data.x, data.y, data.color, data.noteLenght)
+    if (p.getAudioContext().state === 'suspended') {
+      p.getAudioContext().resume()
+    }
+
+    let shape = createShapeObj(data.chosenShape, data.x, data.y, data.color, data.noteLenght)
     p.objects.push(shape)
 
     let osc
@@ -80,31 +93,6 @@ let sketch1 = function (p) {
     }
 
     p.makeSound(data.y, data.x, data.noteLenght, osc)
-
-  }
-
-  p.createShapeObj = function (str, xPos, yPos, color, noteLenght) {
-    switch (str) {
-      case 'circle':
-        return new Circle(xPos, yPos, 50, color, noteLenght, p)
-      case 'rectangle':
-        return new Rectangle(xPos, yPos, 50, 50, color, noteLenght, p)
-      case 'bajs':
-        return new Triangle(xPos, yPos, 60, color, noteLenght, p)
-    }
-  }
-
-
-  p.changeScale = function () {
-    if (p.sel.value() == 'major') {
-      p.scale = majorScale
-    }
-    if (p.sel.value() == 'minor') {
-      p.scale = minScale
-    }
-    if (p.sel.value() == 'pentatonic') {
-      p.scale = pentScale
-    }
   }
 
   p.makeSound = function (yPosition, xPosition, noteLenght, chosenOsc = p.chosenOsc) {
@@ -115,8 +103,8 @@ let sketch1 = function (p) {
     p.freqInd = p.floor(p.map(yPosition, p.height, 0, 0, p.scale.length))
     p.osc.amp(p.env)
     p.osc.start()
-    p.reverb.process(p.osc)
-    p.reverb.amp(1)
+    //p.reverb.process(p.osc)
+    //p.reverb.amp(1)
     p.osc.freq(p.scale[p.freqInd])
     p.env.play()
   }
@@ -125,8 +113,5 @@ let sketch1 = function (p) {
     p.recorder.stop()
     p.saveSound(p.soundFile, 'Our Song')
   }
-}
+}, 'sketch-holder-draw')
 
-
-
-let SoundSketch = new p5(sketch1, 'sketch-holder-draw')

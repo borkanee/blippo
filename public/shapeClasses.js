@@ -1,4 +1,5 @@
-class Circle {
+// Module for shapes
+export class Circle {
     constructor(x, y, diameter, color, noteLength, p) {
         this.value = 4
         this.decrement = this.value / (noteLength * p.frameRate())
@@ -10,24 +11,19 @@ class Circle {
     }
 
     move() {
-        if (this.value < 0) {
-            return
-        }
         this.x = this.x + this.p.random(-this.value, this.value)
         this.y = this.y + this.p.random(-this.value, this.value)
         this.value = this.value - this.decrement
     }
 
     show() {
-        if (this.value > 0.3) {
-            this.p.noStroke()
-            this.p.fill('#' + this.color)
-            this.p.ellipse(this.x, this.y, this.diameter)
-        }
+        this.p.noStroke()
+        this.p.fill(this.color)
+        this.p.ellipse(this.x, this.y, this.diameter)
     }
 }
 
-class Rectangle {
+export class Rectangle {
     constructor(x, y, w, l, color, noteLength, p) {
         this.value = 4
         this.decrement = this.value / (noteLength * p.frameRate())
@@ -41,25 +37,20 @@ class Rectangle {
     }
 
     move() {
-        if (this.value < 0) {
-            return
-        }
         this.x = this.x + this.p.random(-this.value, this.value)
         this.y = this.y + this.p.random(-this.value, this.value)
         this.value = this.value - this.decrement
     }
 
     show() {
-        if (this.value > 0.3) {
-            this.p.noStroke()
-            this.p.rectMode(this.CENTER)
-            this.p.fill('#' + this.color)
-            this.p.rect(this.x, this.y, this.w, this.l)
-        }
+        this.p.noStroke()
+        this.p.rectMode(this.CENTER)
+        this.p.fill(this.color)
+        this.p.rect(this.x, this.y, this.w, this.l)
     }
 }
 
-class Triangle {
+export class Triangle {
     constructor(x1, y1, size, color, noteLength, p) {
         this.value = 4
         this.decrement = this.value / (noteLength * p.frameRate())
@@ -71,18 +62,14 @@ class Triangle {
         this.angle = 0
     }
     show() {
-        if (this.value > 0.3) {
-            this.p.noStroke()
-            this.p.fill('#' + this.color)
-            this.p.triangle(this.x1, this.y1, this.x1 + (this.size / 2), this.y1 - this.size, this.x1 + this.size, this.y1)
-        }
+        this.p.noStroke()
+        this.p.fill(this.color)
+        this.p.triangle(this.x1, this.y1, this.x1 + (this.size / 2), this.y1 - this.size, this.x1 + this.size, this.y1)
     }
     move() {
-        if (this.value < 0) {
-            return
-        }
         this.x1 = this.x1 + this.p.random(-this.value, this.value)
         this.y1 = this.y1 + this.p.random(-this.value, this.value)
         this.value = this.value - this.decrement
+
     }
 }
