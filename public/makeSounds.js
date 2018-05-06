@@ -3,11 +3,12 @@ import { changeScale, createShapeObj, pentScale, majorScale, minScale } from './
 
 const sketch1 = new p5(function (p) {
   p.setup = function () {
+    p.reverbSlider = p.select('#reverb')
 
     p.objects = []
 
     p.reverb = new p5.Reverb()
-    p.reverb.set(8, 1)
+    p.reverb.set(10, 1)
     p.cnv = p.createCanvas(p.windowWidth, 700)
     p.cnv.mousePressed(p.drawShape)
 
@@ -40,6 +41,7 @@ const sketch1 = new p5(function (p) {
   }
 
   p.draw = function () {
+    p.reverb.amp(p.reverbSlider.value())
     p.background(p.random(5, 15), 10)
 
     for (let object of p.objects) {
@@ -56,8 +58,9 @@ const sketch1 = new p5(function (p) {
     }
 
     let noteLenght = p.map(p.mouseX, 0, p.width, 1, 4)
+    let size = 50
 
-    let shape = createShapeObj.call(p, p.chosenShape, p.mouseX, p.mouseY, '#' + p.shapeColor.value(), noteLenght)
+    let shape = createShapeObj.call(p, p.chosenShape, p.mouseX, p.mouseY, size, '#' + p.shapeColor.value(), noteLenght)
 
     let socketData = {
       x: p.mouseX,
@@ -65,7 +68,8 @@ const sketch1 = new p5(function (p) {
       osc: p.chosenOsc,
       color: '#' + p.shapeColor.value(),
       noteLenght: noteLenght,
-      chosenShape: p.chosenShape
+      chosenShape: p.chosenShape,
+      size: size
     }
 
     p.socket.emit('drawing', socketData)
@@ -81,7 +85,7 @@ const sketch1 = new p5(function (p) {
       p.getAudioContext().resume()
     }
 
-    let shape = createShapeObj(data.chosenShape, data.x, data.y, data.color, data.noteLenght)
+    let shape = createShapeObj.call(p, data.chosenShape, data.x, data.y, data.size, data.color, data.noteLenght)
     p.objects.push(shape)
 
     let osc
@@ -103,8 +107,7 @@ const sketch1 = new p5(function (p) {
     p.freqInd = p.floor(p.map(yPosition, p.height, 0, 0, p.scale.length))
     p.osc.amp(p.env)
     p.osc.start()
-    //p.reverb.process(p.osc)
-    //p.reverb.amp(1)
+    p.reverb.process(p.osc)
     p.osc.freq(p.scale[p.freqInd])
     p.env.play()
   }

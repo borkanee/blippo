@@ -13,14 +13,14 @@ export function changeScale(e) {
     }
 }
 
-export function createShapeObj(str, xPos, yPos, color, noteLenght) {
+export function createShapeObj(str, xPos, yPos, size, color, noteLenght) {
     switch (str) {
         case 'circle':
-            return new Circle(xPos, yPos, 50, color, noteLenght, this)
+            return new Circle(xPos, yPos, size, color, noteLenght, this)
         case 'rectangle':
-            return new Rectangle(xPos, yPos, 50, 50, color, noteLenght, this)
+            return new Rectangle(xPos, yPos, size, size, color, noteLenght, this)
         case 'triangle':
-            return new Triangle(xPos, yPos, 50, color, noteLenght, this)
+            return new Triangle(xPos, yPos, size, color, noteLenght, this)
     }
 }
 
