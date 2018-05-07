@@ -43,8 +43,10 @@ class CitySelector extends window.HTMLElement {
         let cities = this.shadowRoot.querySelector('#cities')
         cities.innerHTML = ''
         for (let city of this.cities) {
+
             let option = document.createElement('option')
             option.setAttribute('value', city.name)
+            option.text = `(${city.country}) Geo coords[${city.coord.lat},${city.coord.lon}]`
             cities.appendChild(option)
         }
     }

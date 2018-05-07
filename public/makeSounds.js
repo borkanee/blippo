@@ -3,12 +3,13 @@ import { changeScale, createShapeObj, pentScale, majorScale, minScale } from './
 
 const sketch1 = new p5(function (p) {
   p.setup = function () {
+
     p.reverbSlider = p.select('#reverb')
 
     p.objects = []
 
     p.reverb = new p5.Reverb()
-    p.reverb.set(10, 1)
+    p.reverb.set(6, 2)
     p.cnv = p.createCanvas(p.windowWidth, 700)
     p.cnv.mousePressed(p.drawShape)
 
@@ -101,8 +102,8 @@ const sketch1 = new p5(function (p) {
 
   p.makeSound = function (yPosition, xPosition, noteLenght, chosenOsc = p.chosenOsc) {
     p.env = new p5.Env()
-    p.env.setADSR(0.008, 0.2, 0.25, noteLenght)
-    p.env.setRange(0.4, 0.0)
+    p.env.setADSR(0.008, 0., 0.1875, noteLenght)
+    p.env.setRange(0.3, 0.0)
     p.osc = new p5.Oscillator(chosenOsc)
     p.freqInd = p.floor(p.map(yPosition, p.height, 0, 0, p.scale.length))
     p.osc.amp(p.env)

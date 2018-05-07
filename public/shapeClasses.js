@@ -1,7 +1,6 @@
 // Module for shapes
 export class Circle {
     constructor(x, y, diameter, color, noteLength, p) {
-        console.log(this, p)
         this.value = 4
         this.decrement = this.value / (noteLength * p.frameRate())
         this.x = x

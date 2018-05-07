@@ -48,13 +48,15 @@ const sketch2 = new p5(function (p) {
         if (p.interval) {
             clearInterval(p.interval)
         }
+        console.log(data)
         p.speed = data.wind.speed * 100
         p.interval = setInterval(() => {
             let x = p.random(0, p.width)
             let y = p.random(0, p.height)
+            let size = 50
             let noteLenght = p.map(p.mouseX, 0, p.width, 1, 4)
             let color = p.color(p.random(0, 256), p.random(0, 256), p.random(0, 256))
-            let shape = createShapeObj.call(p, p.chosenShape, x, y, color, noteLenght)
+            let shape = createShapeObj.call(p, p.chosenShape, x, y, size, color, noteLenght)
             p.objects.push(shape)
             p.makeSound(y, x, noteLenght)
         }, p.speed)
