@@ -1,6 +1,6 @@
 import './city-selector.js'
 import { Circle, Rectangle, Triangle } from './shapeClasses.js'
-import { changeScale, createShape, PENTSCALE, MAJORSCALE, MINORSCALE } from './settings.js'
+import { getWeatherScale, changeScale, createShape, PENTSCALE, MAJORSCALE, MINORSCALE } from './settings.js'
 
 const sketch2 = new p5(function (p) {
 
@@ -13,21 +13,15 @@ const sketch2 = new p5(function (p) {
         p.reverb.set(6, 2)
 
         p.objects = []
+        p.shapes = ['circle', 'rectangle', 'triangle']
+
 
         p.socket = io.connect('http://localhost:3000/')
         p.socket.on('weather-data', p.startDrawing)
 
-        p.selShape = p.select('#select-shape')
-        p.chosenShape = p.selShape.value()
-        p.selShape.changed(() => p.chosenShape = p.selShape.value())
-
         p.selOsc = p.select('#select-osc-draw')
         p.chosenOsc = p.selOsc.value()
         p.selOsc.changed(() => p.chosenOsc = p.selOsc.value())
-
-        p.scale = MAJORSCALE
-        p.selScale = p.select('#select-scale-data')
-        p.selScale.changed(changeScale.bind(this))
 
         p.cities = document.querySelector('#city-weather')
         p.cities.addEventListener('selected', e => {
@@ -54,15 +48,17 @@ const sketch2 = new p5(function (p) {
         if (p.interval) {
             clearInterval(p.interval)
         }
-        console.log(data)
+        
+        p.scale = getWeatherScale(data.weather[0].id)
         p.speed = data.wind.speed * 100
         p.interval = setInterval(() => {
             let x = p.random(0, p.width)
             let y = p.random(0, p.height)
             let size = 50
             let noteLenght = p.map(p.mouseX, 0, p.width, 1, 4)
-            let color = p.color(p.random(0, 256), p.random(0, 256), p.random(0, 256))
-            let shape = createShape.call(p, p.chosenShape, x, y, size, color, noteLenght)
+            let randomShape = p.shapes[Math.floor(Math.random() * p.shapes.length)]
+            let color = p.color(p.random(0, 256), p.random(0, 256), p.random(0, 256), p.random(0, 256))
+            let shape = createShape.call(p, randomShape, x, y, size, color, noteLenght)
             p.objects.push(shape)
             p.makeSound(y, x, noteLenght)
         }, p.speed)
