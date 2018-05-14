@@ -8,12 +8,14 @@ export class Circle {
         this.diameter = diameter
         this.color = color
         this.p = p
+        this.isPlaying = true
     }
 
     move() {
         this.x = this.x + this.p.random(-this.value, this.value)
         this.y = this.y + this.p.random(-this.value, this.value)
-        this.value = this.value - this.decrement
+        this.value -= this.decrement
+        if (this.value < 0.1) { this.isPlaying = false }
     }
 
     show() {
@@ -34,12 +36,14 @@ export class Rectangle {
         this.color = color
         this.p = p
         this.CENTER = this.p.CENTER
+        this.isPlaying = true
     }
 
     move() {
         this.x = this.x + this.p.random(-this.value, this.value)
         this.y = this.y + this.p.random(-this.value, this.value)
-        this.value = this.value - this.decrement
+        this.value -= this.decrement
+        if (this.value < 0.1) { this.isPlaying = false }
     }
 
     show() {
@@ -60,6 +64,7 @@ export class Triangle {
         this.color = color
         this.p = p
         this.angle = 0
+        this.isPlaying = true
     }
     show() {
         this.p.noStroke()
@@ -69,7 +74,7 @@ export class Triangle {
     move() {
         this.x1 = this.x1 + this.p.random(-this.value, this.value)
         this.y1 = this.y1 + this.p.random(-this.value, this.value)
-        this.value = this.value - this.decrement
-
+        this.value -= this.decrement
+        if (this.value < 0.1) { this.isPlaying = false }
     }
 }

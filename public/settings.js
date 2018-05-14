@@ -3,17 +3,17 @@ import { Circle, Rectangle, Triangle } from './shapeClasses.js'
 
 export function changeScale(e) {
     if (e.target.value == 'major') {
-        this.scale = majorScale
+        this.scale = MAJORSCALE
     }
     if (e.target.value == 'minor') {
-        this.scale = minScale
+        this.scale = MINORSCALE
     }
     if (e.target.value == 'pentatonic') {
-        this.scale = pentScale
+        this.scale = PENTSCALE
     }
 }
 
-export function createShapeObj(str, xPos, yPos, size, color, noteLenght) {
+export function createShape(str, xPos, yPos, size, color, noteLenght) {
     switch (str) {
         case 'circle':
             return new Circle(xPos, yPos, size, color, noteLenght, this)
@@ -24,17 +24,17 @@ export function createShapeObj(str, xPos, yPos, size, color, noteLenght) {
     }
 }
 
-export const pentScale = [
+export const PENTSCALE = [
     130.81, 146.83, 164.81, 196.00, 220.00,
     261.63, 293.66, 329.63, 392.00, 440.00, 523.25
 ]
 
-export const majorScale = [
+export const MAJORSCALE = [
     130.81, 146.83, 164.81, 174.61, 196.00, 220.00,
     246.94, 261.63, 293.66, 329.63, 349.23, 392.00,
     440.00, 493.88, 523.25
 ]
 
-export const minScale = [130.81, 146.83, 155.56, 174.61, 196.00, 207.65, 233.08, 261.63,
+export const MINORSCALE = [130.81, 146.83, 155.56, 174.61, 196.00, 207.65, 233.08, 261.63,
     293.66, 311.13, 349.23, 392.00, 415.30, 466.16, 523.25]
 

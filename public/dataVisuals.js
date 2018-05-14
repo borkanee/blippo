@@ -1,11 +1,16 @@
 import './city-selector.js'
 import { Circle, Rectangle, Triangle } from './shapeClasses.js'
-import { changeScale, createShapeObj, pentScale, majorScale, minScale } from './settings.js'
+import { changeScale, createShape, PENTSCALE, MAJORSCALE, MINORSCALE } from './settings.js'
 
 const sketch2 = new p5(function (p) {
 
     p.setup = function () {
         p.createCanvas(p.windowWidth, 700)
+
+        p.reverbSlider = p.select('#reverb')
+
+        p.reverb = new p5.Reverb()
+        p.reverb.set(6, 2)
 
         p.objects = []
 
@@ -20,7 +25,7 @@ const sketch2 = new p5(function (p) {
         p.chosenOsc = p.selOsc.value()
         p.selOsc.changed(() => p.chosenOsc = p.selOsc.value())
 
-        p.scale = majorScale
+        p.scale = MAJORSCALE
         p.selScale = p.select('#select-scale-data')
         p.selScale.changed(changeScale.bind(this))
 
@@ -31,14 +36,15 @@ const sketch2 = new p5(function (p) {
     }
 
     p.draw = function () {
+        p.reverb.amp(p.reverbSlider.value())
         p.background(p.random(5, 15), 10)
 
-        for (let object of p.objects) {
-            if (object.value > 0.1) {
-                object.show()
-                object.move()
+        p.objects.forEach(shape => {
+            if (shape.isPlaying) {
+                shape.show()
+                shape.move()
             }
-        }
+        })
     }
 
     p.startDrawing = function (data) {
@@ -56,7 +62,7 @@ const sketch2 = new p5(function (p) {
             let size = 50
             let noteLenght = p.map(p.mouseX, 0, p.width, 1, 4)
             let color = p.color(p.random(0, 256), p.random(0, 256), p.random(0, 256))
-            let shape = createShapeObj.call(p, p.chosenShape, x, y, size, color, noteLenght)
+            let shape = createShape.call(p, p.chosenShape, x, y, size, color, noteLenght)
             p.objects.push(shape)
             p.makeSound(y, x, noteLenght)
         }, p.speed)
@@ -68,9 +74,10 @@ const sketch2 = new p5(function (p) {
         p.env.setRange(0.5, 0.0)
         p.osc = new p5.Oscillator(p.chosenOsc)
         p.freqInd = p.floor(p.map(yPosition, p.height, 0, 0, p.scale.length))
-        p.osc.freq(p.scale[p.freqInd])
         p.osc.amp(p.env)
         p.osc.start()
+        p.reverb.process(p.osc)
+        p.osc.freq(p.scale[p.freqInd])
         p.env.play()
     }
 }, 'sketch-holder-data')
