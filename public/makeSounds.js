@@ -1,10 +1,11 @@
 import './jscolor.js'
-import { changeScale, createShape, PENTSCALE, MAJORSCALE, MINORSCALE } from './settings.js'
+import { changeScale, createShape, MAJORSCALE } from './settings.js'
 
 const sketch1 = new p5(function (p) {
   p.setup = function () {
 
     p.reverbSlider = p.select('#reverb')
+    p.shapeSizeSlider = p.select('#shape-size')
 
     p.objects = []
 
@@ -13,8 +14,10 @@ const sketch1 = new p5(function (p) {
     p.cnv = p.createCanvas(p.windowWidth, 700)
     p.cnv.mousePressed(p.drawShape)
 
-    p.saveButton = p.select('#button-save')
-    p.saveButton.mousePressed(p.saveFile)
+    p.isRecording = false
+
+    p.recordButton = document.createElement('button')
+    p.recordButton.textContent = 'START RECORDING'
 
     p.shapeColor = p.select('#shape-color')
 
@@ -36,7 +39,6 @@ const sketch1 = new p5(function (p) {
     p.recorder = new p5.SoundRecorder()
     p.recorder.setInput()
     p.soundFile = new p5.SoundFile()
-    p.recorder.record(p.soundFile)
   }
 
   p.draw = function () {
@@ -54,18 +56,21 @@ const sketch1 = new p5(function (p) {
   p.drawShape = function () {
     if (p.getAudioContext().state === 'suspended') {
       p.getAudioContext().resume()
+      document.querySelector('.navbar-nav').appendChild(p.recordButton)
+      p.recordButton.addEventListener('click', p.recordingHandler)
     }
 
     let noteLenght = p.map(p.mouseX, 0, p.width, 1, 4)
-    let size = 50
+    let size = p.shapeSizeSlider.value()
+    let color = p.color('#' + p.shapeColor.value())
 
-    let shape = createShape.call(p, p.chosenShape, p.mouseX, p.mouseY, size, '#' + p.shapeColor.value(), noteLenght)
+    let shape = createShape.call(p, p.chosenShape, p.mouseX, p.mouseY, size, color, noteLenght)
 
     let socketData = {
       x: p.mouseX,
       y: p.mouseY,
       osc: p.chosenOsc,
-      color: '#' + p.shapeColor.value(),
+      color: color,
       noteLenght: noteLenght,
       chosenShape: p.chosenShape,
       size: size,
@@ -108,9 +113,22 @@ const sketch1 = new p5(function (p) {
     p.env.play()
   }
 
-  p.saveFile = function () {
-    p.recorder.stop()
-    p.saveSound(p.soundFile, 'Our Song')
+  p.recordingHandler = function () {
+    if (!p.isRecording) {
+      p.recorder.record(p.soundFile)
+      p.recordButton.textContent = 'STOP RECORDING & SAVE'
+      p.recordButton.style.color = 'red'
+      return p.isRecording = true
+
+    }
+
+    if (p.isRecording) {
+      p.recorder.stop()
+      p.saveSound(p.soundFile, 'Our Song')
+      p.recordButton.textContent = 'START RECORDING'
+      p.recordButton.style.color = null
+      return p.isRecording = false
+    }
   }
 }, 'sketch-holder-draw')
 

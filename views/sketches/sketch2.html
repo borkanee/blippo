@@ -3,6 +3,8 @@
 
 <head>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="./style/style.css">
     <script src="./libraries/p5.js"></script>
     <script src="./libraries/p5.dom.js"></script>
@@ -12,17 +14,23 @@
 </head>
 
 <body>
-    <city-selector id="city-weather"></city-selector>
-    <input type="range" min="0" max="4" step="0.2" value="0" id="reverb">
-    <div class="select-div">
-        <select id="select-osc-draw">
-            <option value="sine" selected>Sine</option>
-            <option value="triangle">Triangle</option>
-            <option value="sawtooth">Sawtooth</option>
-            <option value="square">Square</option>
-        </select>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Play Music</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/weather-music">Weather
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+            <city-selector id="city-weather"></city-selector>
+        </div>
+    </nav>
+    <div id="sketch-holder-data">
     </div>
-    <div id="sketch-holder-data"></div>
 </body>
 
 </html>

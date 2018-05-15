@@ -38,6 +38,35 @@ export const MAJORSCALE = [
 export const MINORSCALE = [130.81, 146.83, 155.56, 174.61, 196.00, 207.65, 233.08, 261.63,
     293.66, 311.13, 349.23, 392.00, 415.30, 466.16, 523.25]
 
+export const SHAPE_TYPES = Object.freeze([
+    'circle',
+    'rectangle',
+    'triangle'
+])
+
+export const OSCILLATOR_TYPE = Object.freeze({
+    SINE: 'sine',
+    TRIANGLE: 'triangle',
+    SAWTOOTH: 'sawtooth',
+    SQUARE: 'square'
+})
+
+export function getOscillatorType(temp) {
+    if (temp > 20) {
+        return OSCILLATOR_TYPE.SINE
+    }
+    if (temp < 20 && temp > 0) {
+        return OSCILLATOR_TYPE.TRIANGLE
+    }
+    if (temp < 0 && temp > -20) {
+        return OSCILLATOR_TYPE.SAWTOOTH
+    }
+    if (temp < -20) {
+        return OSCILLATOR_TYPE.SQUARE
+    }
+}
+
+
 export function getWeatherScale(weatherID) {
     switch (weatherID) {
         case 200:
@@ -103,3 +132,5 @@ export function getWeatherScale(weatherID) {
             break
     }
 }
+
+

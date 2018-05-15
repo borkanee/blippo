@@ -20,6 +20,7 @@ export class Circle {
 
     show() {
         this.p.noStroke()
+        this.color.setAlpha(this.p.random(0, 256))
         this.p.fill(this.color)
         this.p.ellipse(this.x, this.y, this.diameter)
     }
@@ -48,6 +49,7 @@ export class Rectangle {
 
     show() {
         this.p.noStroke()
+        this.color.setAlpha(this.p.random(0, 256))
         this.p.rectMode(this.CENTER)
         this.p.fill(this.color)
         this.p.rect(this.x, this.y, this.w, this.l)
@@ -68,6 +70,7 @@ export class Triangle {
     }
     show() {
         this.p.noStroke()
+        this.color.setAlpha(this.p.random(0, 256))
         this.p.fill(this.color)
         this.p.triangle(this.x1, this.y1, this.x1 + (this.size / 2), this.y1 - this.size, this.x1 + this.size, this.y1)
     }

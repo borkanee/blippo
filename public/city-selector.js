@@ -1,9 +1,16 @@
 const template = document.createElement('template')
 template.innerHTML = `
-<div class="input-field">
-<input id="cityselector" type="text" list="cities">
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<form class="pure-form">
+<input class="pure-input-rounded" id="cityselector" type="text" placeholder="SEARCH CITY" list="cities">
 <label class="active" for="cityselector"></label>
 <datalist id="cities"></datalist>
+</form>
+<style>
+:host {
+    display: inline-block
+}
+</style>
 `
 
 class CitySelector extends window.HTMLElement {
@@ -43,7 +50,6 @@ class CitySelector extends window.HTMLElement {
         let cities = this.shadowRoot.querySelector('#cities')
         cities.innerHTML = ''
         for (let city of this.cities) {
-
             let option = document.createElement('option')
             option.setAttribute('value', city.name)
             option.text = `(${city.country}) Geo coords[${city.coord.lat},${city.coord.lon}]`

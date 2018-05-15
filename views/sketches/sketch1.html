@@ -3,6 +3,8 @@
 
 <head>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="./style/style.css">
     <script src="./libraries/p5.js"></script>
     <script src="./libraries/p5.dom.js"></script>
@@ -12,37 +14,44 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Play Music
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/weather-music">Weather</a>
+                </li>
+                <select id="select-shape">
+                    <option value="circle" selected>Circle</option>
+                    <option value="rectangle">Rectangle</option>
+                    <option value="triangle">Triangle</option>
+                </select>
+                <select id="select-osc-draw">
+                    <option value="sine" selected>Sine</option>
+                    <option value="triangle">Triangle</option>
+                    <option value="sawtooth">Sawtooth</option>
+                    <option value="square">Square</option>
+                </select>
+                <select id="select-scale">
+                    <option value="major" selected>Major Scale</option>
+                    <option value="minor">Minor Sale</option>
+                    <option value="pentatonic">Pentatonic Scale</option>
+                </select>
+            </ul>
+        </div>
+    </nav>
     <div id="color-settings">
         <div>
             <input disabled class="jscolor" id="shape-color" value="82EAFF">
         </div>
     </div>
-
-    <button id="button-save">Save</button>
     <input type="range" min="0" max="4" step="0.2" value="0" id="reverb">
+    <input type="range" min="10" max="150" step="2" value="50" id="shape-size">
     <div id="sketch-holder-draw">
-        <div class="select-div">
-            <select id="select-shape">
-                <option value="circle" selected>Circle</option>
-                <option value="rectangle">Rectangle</option>
-                <option value="triangle">Triangle</option>
-            </select>
-        </div>
-        <div class="select-div">
-            <select id="select-osc-draw">
-                <option value="sine" selected>Sine</option>
-                <option value="triangle">Triangle</option>
-                <option value="sawtooth">Sawtooth</option>
-                <option value="square">Square</option>
-            </select>
-        </div>
-        <div class="select-div">
-            <select id="select-scale">
-                <option value="major" selected>Major Scale</option>
-                <option value="minor">Minor Sale</option>
-                <option value="pentatonic">Pentatonic Scale</option>
-            </select>
-        </div>
     </div>
 </body>
 
