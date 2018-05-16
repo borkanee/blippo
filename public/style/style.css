@@ -3,17 +3,14 @@ body {
     margin: 0;
 }
 
-.color-container {
-    margin: 10px;
-    text-align: center;
-    border-style: solid;
-    border-width: 1px;
+.navbar-toggler:focus {
+    outline:0 !important;
 }
 
-.color-container div {
-    margin: 5px;
+#shape-color {
+    width:70px;
 }
 
-.color-slider {
-    height:10px;
+.small-text {
+    font-size: 11px;
 }

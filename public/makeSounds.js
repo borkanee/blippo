@@ -4,33 +4,37 @@ import { changeScale, createShape, MAJORSCALE } from './settings.js'
 const sketch1 = new p5(function (p) {
   p.setup = function () {
 
+    $('[data-toggle="tooltip"]').tooltip()
+
+    p.cnv = p.createCanvas(p.windowWidth, p.windowHeight - document.querySelector('.navbar').offsetHeight)
+    p.cnv.mousePressed(p.drawShape)
+
     p.reverbSlider = p.select('#reverb')
     p.shapeSizeSlider = p.select('#shape-size')
+    p.shapeColor = p.select('#shape-color')
+    p.selOsc = p.select('#select-osc-draw')
+    p.selShape = p.select('#select-shape')
+    p.selectScale = p.select('#select-scale')
+
+    p.recordButton = document.createElement('button')
+    p.recordButton.textContent = 'START RECORDING'
+    p.recButton = false
 
     p.objects = []
 
     p.reverb = new p5.Reverb()
     p.reverb.set(6, 2)
-    p.cnv = p.createCanvas(p.windowWidth, 700)
-    p.cnv.mousePressed(p.drawShape)
 
     p.isRecording = false
 
-    p.recordButton = document.createElement('button')
-    p.recordButton.textContent = 'START RECORDING'
-
-    p.shapeColor = p.select('#shape-color')
-
-    p.selOsc = p.select('#select-osc-draw')
     p.chosenOsc = p.selOsc.value()
     p.selOsc.changed(() => p.chosenOsc = p.selOsc.value())
 
-    p.selShape = p.select('#select-shape')
     p.chosenShape = p.selShape.value()
     p.selShape.changed(() => p.chosenShape = p.selShape.value())
 
     p.scale = MAJORSCALE
-    p.selectScale = p.select('#select-scale')
+
     p.selectScale.changed(changeScale.bind(this))
 
     p.socket = io.connect('http://localhost:3000/')
@@ -56,8 +60,11 @@ const sketch1 = new p5(function (p) {
   p.drawShape = function () {
     if (p.getAudioContext().state === 'suspended') {
       p.getAudioContext().resume()
-      document.querySelector('.navbar-nav').appendChild(p.recordButton)
+    }
+    if (!p.recButton) {
+      document.querySelector('#nav-container').insertBefore(p.recordButton, document.querySelector('.navbar-toggler'))
       p.recordButton.addEventListener('click', p.recordingHandler)
+      p.recButton = true
     }
 
     let noteLenght = p.map(p.mouseX, 0, p.width, 1, 4)
