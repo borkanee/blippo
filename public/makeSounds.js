@@ -1,13 +1,12 @@
-import './jscolor.js'
+import './library/jscolor.js'
 import { changeScale, createShape, MAJORSCALE } from './settings.js'
 
 const sketch1 = new p5(function (p) {
   p.setup = function () {
 
-    $('[data-toggle="tooltip"]').tooltip()
-
-    p.cnv = p.createCanvas(p.windowWidth, p.windowHeight - document.querySelector('.navbar').offsetHeight)
-    p.cnv.mousePressed(p.drawShape)
+    p.cnv = p.createCanvas(p.windowWidth, (p.windowHeight - document.querySelector('.navbar').offsetHeight))
+    p.cnv.mouseClicked(p.drawShape)
+    p.cnv.touchEnded(p.draw)
 
     p.reverbSlider = p.select('#reverb')
     p.shapeSizeSlider = p.select('#shape-size')
@@ -37,7 +36,7 @@ const sketch1 = new p5(function (p) {
 
     p.selectScale.changed(changeScale.bind(this))
 
-    p.socket = io.connect('http://localhost:3000/')
+    p.socket = io.connect('http://192.168.0.2:3000/')
     p.socket.on('drawing', p.drawNew)
 
     p.recorder = new p5.SoundRecorder()
@@ -69,15 +68,15 @@ const sketch1 = new p5(function (p) {
 
     let noteLenght = p.map(p.mouseX, 0, p.width, 1, 4)
     let size = p.shapeSizeSlider.value()
-    let color = p.color('#' + p.shapeColor.value())
+    let colorString = '#' + p.shapeColor.value()
 
-    let shape = createShape.call(p, p.chosenShape, p.mouseX, p.mouseY, size, color, noteLenght)
+    let shape = createShape.call(p, p.chosenShape, p.mouseX, p.mouseY, size, p.color(colorString), noteLenght)
 
     let socketData = {
       x: p.mouseX,
       y: p.mouseY,
       osc: p.chosenOsc,
-      color: color,
+      color: colorString,
       noteLenght: noteLenght,
       chosenShape: p.chosenShape,
       size: size,
@@ -98,7 +97,7 @@ const sketch1 = new p5(function (p) {
       p.getAudioContext().resume()
     }
 
-    let shape = createShape.call(p, data.chosenShape, data.x, data.y, data.size, data.color, data.noteLenght)
+    let shape = createShape.call(p, data.chosenShape, data.x, data.y, data.size, p.color(data.color), data.noteLenght)
     p.objects.push(shape)
 
     let osc = (data.osc == p.chosenOsc) ? p.chosenOsc : data.osc

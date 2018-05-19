@@ -24,11 +24,12 @@
   },
   "homepage": "https://github.com/1dv430/bg222ci-project#readme",
   "dependencies": {
+    "datalist-polyfill": "^1.12.3",
     "express": "^4.16.3",
     "node-fetch": "^2.1.2",
     "socket.io": "^2.1.0"
   },
   "devDependencies": {
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.17.4"
   }
 }

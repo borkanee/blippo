@@ -27,7 +27,7 @@ app.get('/weather-music', function (req, res) {
     return res.sendFile(path.join(__dirname, 'views', 'sketches', 'sketch2.html'))
 })
 
-app.use('/api/cities', require('./api/routes/cityRoutes'))
+app.use('/api/', require('./api/routes/cityRoutes'))
 
 io.on('connection', function (socket) {
     socket.on('drawing', drawMsg)

@@ -5,14 +5,14 @@ import { getWeatherScale, getOscillatorType, createShape, OSCILLATOR_TYPE, SHAPE
 const sketch2 = new p5(function (p) {
 
     p.setup = function () {
-        p.createCanvas(p.windowWidth, p.windowHeight)
+        p.createCanvas(p.windowWidth, (p.windowHeight - document.querySelector('.navbar').offsetHeight))
 
         p.reverb = new p5.Reverb()
         p.reverb.set(6, 2)
 
         p.objects = []
 
-        p.socket = io.connect('http://localhost:3000/')
+        p.socket = io.connect('http://192.168.0.2:3000/')
         p.socket.on('weather-data', p.startDrawing)
 
         p.cities = document.querySelector('#city-weather')
@@ -44,13 +44,10 @@ const sketch2 = new p5(function (p) {
         let scale = getWeatherScale(data.weather[0].id)
         let oscillatorType = getOscillatorType(data.main.temp)
         let speed = p.map(data.wind.speed, 0, 10, 900, 250)
-        console.log(speed, data.wind.speed)
         let size = p.map(data.main.humidity, 1, 100, 20, 150)
-        console.log(data)
         let revLevel = p.map(data.main.humidity, 0, 100, 0, 4)
-
         p.reverb.amp(revLevel)
-        console.log(revLevel)
+
 
         p.interval = setInterval(() => {
             if (p.objects.length > 100) { p.objects = [] }

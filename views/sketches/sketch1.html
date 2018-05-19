@@ -6,7 +6,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="./style/style.css">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
     <meta name="description" content="">
     <meta name="author" content="">
     <title>IND PROJECT!</title>
@@ -17,7 +17,7 @@
         <div class="collapse bg-light" id="navbarHeader">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-sm-3 col-3 py-4">
+                    <div class="col-5 col-sm-5 col-md-4 col-lg-3 py-4">
                         <select id="select-shape" class="selectpicker form-control">
                             <option value="circle" selected>Circle</option>
                             <option value="rectangle">Rectangle</option>
@@ -38,18 +38,18 @@
                         </select>
                         <p class="small-text">scale</p>
                     </div>
-                    <div class="col-sm-3 col-3 py-4">
+                    <div class="col-4 col-sm-3 col-md-3 col-lg-2 py-4 ml-5">
                         <ul class="list-unstyled">
                             <li>
                                 <input class="jscolor" id="shape-color" value="82EAFF">
                                 <p class="small-text">shape color</p>
                             </li>
                             <li>
-                                <input type="range" min="10" max="150" step="2" value="50" id="shape-size">
+                                <input class="my-slider" type="range" min="10" max="150" step="2" value="50" id="shape-size">
                                 <p class="small-text">shape size</p>
                             </li>
                             <li>
-                                <input type="range" min="0" max="4" step="0.2" value="0" id="reverb">
+                                <input class="my-slider" type="range" min="0" max="4" step="0.2" value="0" id="reverb">
                                 <p class="small-text">reverb</p>
                             </li>
                         </ul>
@@ -58,14 +58,14 @@
             </div>
         </div>
         <div class="navbar navbar-light bg-light box-shadow">
-            <div id="nav-container" class="container d-flex justify-content-between">
+            <div id="nav-container" class="container d-flex justify-content-around">
                 <a href="/weather-music" class="navbar-brand d-flex align-items-center">
-                    <strong>WEATHER-MUSIC</strong>
+                    <strong>WEATHER</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader"
                     aria-expanded="false" aria-label="Toggle navigation">
 
-                    <span data-toggle="tooltip" data-delay="100" data-placement="left" title="SETTINGS" class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
         </div>
@@ -78,13 +78,11 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
-    <script src="./libraries/p5.js"></script>
-    <script src="./libraries/p5.dom.js"></script>
-    <script src="./libraries/p5.sound.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js"></script>
     <script src="makeSounds.js" type="module"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <div id="sketch-holder-draw">
-    </div>
 </body>
 
 </html>

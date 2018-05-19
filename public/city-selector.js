@@ -1,39 +1,42 @@
 const template = document.createElement('template')
 template.innerHTML = `
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-<form class="pure-form">
-<input class="pure-input-rounded" id="cityselector" type="text" placeholder="SEARCH CITY" list="cities">
+<div>
+<input id="cityselector" name="city" type="text" list="citylist">
 <label class="active" for="cityselector"></label>
-<datalist id="cities"></datalist>
-</form>
-<style>
-:host {
-    display: inline-block
-}
-</style>
+<datalist title="Choose a suggestion" id="citylist"></datalist>
+</div>
 `
 
 class CitySelector extends window.HTMLElement {
     constructor() {
         super()
 
-        this.attachShadow({ mode: 'open' })
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
+        this.supportsDatalist = ('list' in document.createElement('input')) &&
+            !!(document.createElement('datalist') && window.HTMLDataListElement)
 
-        this._input = this.shadowRoot.querySelector('#cityselector')
+        this.appendChild(template.content.cloneNode(true))
+
+        this.lengthLetters = this.supportsDatalist ? 5 : 2
+        this._input = this.querySelector('#cityselector')
 
         this.cities = []
     }
 
     connectedCallback() {
+        if (!this.supportsDatalist) {
+            window.fetch('http://192.168.0.2:3000/api/capitals').then(res => res.json()).then(res => {
+                this.cities = res.cities
+                this._updateRendering()
+            })
+        }
         this._input.addEventListener('input', async e => {
-            if (this._input.value.length < 5) {
+            if (this._input.value.length < this.lengthLetters) {
                 return
             }
-            this.cities = await this.search(this._input.value)
-
-            this._updateRendering()
-
+            if (this.supportsDatalist) {
+                this.cities = await this.search(this._input.value)
+                this._updateRendering()
+            }
             let hit = this.cities.filter(city => city.name === this._input.value).shift()
             if (hit) {
                 this.dispatchEvent(new window.CustomEvent('selected', { detail: hit }))
@@ -42,17 +45,17 @@ class CitySelector extends window.HTMLElement {
         })
     }
     async search(str) {
-        let res = await window.fetch(`http://localhost:3000/api/cities/?q=${str}`)
+        let res = await window.fetch(`http://192.168.0.2:3000/api/cities/?q=${str}`)
         res = await res.json()
         return res.cities
     }
     _updateRendering() {
-        let cities = this.shadowRoot.querySelector('#cities')
+        let cities = this.querySelector('#citylist')
         cities.innerHTML = ''
         for (let city of this.cities) {
             let option = document.createElement('option')
             option.setAttribute('value', city.name)
-            option.text = `(${city.country}) Geo coords[${city.coord.lat},${city.coord.lon}]`
+            //option.text = `(${city.country}) Geo coords[${city.coord.lat},${city.coord.lon}]`
             cities.appendChild(option)
         }
     }
