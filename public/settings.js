@@ -14,7 +14,6 @@ export function changeScale(e) {
 }
 
 export function createShape(str, xPos, yPos, size, color, noteLenght) {
-    console.log(this)
     switch (str) {
         case 'circle':
             return new Circle(xPos, yPos, size, color, noteLenght, this)
@@ -134,4 +133,6 @@ export function getWeatherScale(weatherID) {
     }
 }
 
-
+export function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
+}

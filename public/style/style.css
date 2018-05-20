@@ -1,17 +1,29 @@
 body {
     padding: 0;
     margin: 0;
+    opacity: 1;
+    transition: 1s opacity;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: none;
 }
 
 .navbar-toggler:focus {
     outline:0 !important;
 }
 
-#shape-color {
-    width:80px;
+.jscolor {
+    width: 80px;
+    outline:0 !important;
 }
 
 .small-text {
     font-size: 12px;
 }
 
+.form-control:focus {
+    border-style: none;
+    box-shadow: none;
+  }

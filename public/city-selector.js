@@ -1,10 +1,16 @@
 const template = document.createElement('template')
 template.innerHTML = `
 <div>
-<input id="cityselector" name="city" type="text" list="citylist">
+<input id="cityselector" placeholder="Search city..." name="city" type="text" list="citylist">
 <label class="active" for="cityselector"></label>
-<datalist title="Choose a suggestion" id="citylist"></datalist>
+<datalist title="Choose a suggestion" id="citylist">
+</datalist>
 </div>
+<style>
+#cityselector:focus {
+    outline:0 !important;
+}
+</style>
 `
 
 class CitySelector extends window.HTMLElement {
@@ -16,7 +22,7 @@ class CitySelector extends window.HTMLElement {
 
         this.appendChild(template.content.cloneNode(true))
 
-        this.lengthLetters = this.supportsDatalist ? 5 : 2
+        this.lengthLetters = this.supportsDatalist ? 4 : 2
         this._input = this.querySelector('#cityselector')
 
         this.cities = []
@@ -24,8 +30,8 @@ class CitySelector extends window.HTMLElement {
 
     connectedCallback() {
         if (!this.supportsDatalist) {
-            window.fetch('http://192.168.0.2:3000/api/capitals').then(res => res.json()).then(res => {
-                this.cities = res.cities
+            window.fetch('http://192.168.0.2:3000/api/capitals').then(res => res.json()).then(json => {
+                this.cities = json.cities
                 this._updateRendering()
             })
         }
@@ -55,7 +61,7 @@ class CitySelector extends window.HTMLElement {
         for (let city of this.cities) {
             let option = document.createElement('option')
             option.setAttribute('value', city.name)
-            //option.text = `(${city.country}) Geo coords[${city.coord.lat},${city.coord.lon}]`
+            //option.text = `(${city.country})`
             cities.appendChild(option)
         }
     }

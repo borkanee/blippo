@@ -1,903 +1,891 @@
 [
     {
-        "country": "Abkhazia",
-        "name": "Sukhumi",
-        "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0626e06c"
-    },
-    {
         "country": "Afghanistan",
         "name": "Kabul",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0626e6be"
-    },
-    {
-        "country": "Akrotiri and Dhekelia",
-        "name": "Episkopi Cantonment",
-        "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0626f280"
+        "id": 1138958
     },
     {
         "country": "Albania",
         "name": "Tirana",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0626f359"
+        "id": 3183875
     },
     {
         "country": "Algeria",
         "name": "Algiers",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0626f8d7"
+        "id": 2507480
     },
     {
         "country": "American Samoa",
         "name": "Pago Pago",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627050b"
+        "id": 5881576
     },
     {
         "country": "Andorra",
         "name": "Andorra la Vella",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06270be1"
+        "id": 3041563
     },
     {
         "country": "Angola",
         "name": "Luanda",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062719bf"
+        "id": 2240449
     },
     {
         "country": "Anguilla",
         "name": "The Valley",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06271c04"
+        "id": 3573374
     },
     {
         "country": "Antigua and Barbuda",
         "name": "St. John's",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627237d"
+        "id": 6324733
     },
     {
         "country": "Argentina",
         "name": "Buenos Aires",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06272a9b"
+        "id": 3435910
     },
     {
         "country": "Armenia",
         "name": "Yerevan",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06272d8f"
+        "id": 616052
     },
     {
         "country": "Aruba",
         "name": "Oranjestad",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062735ad"
+        "id": 3577154
     },
     {
         "country": "Ascension Island",
         "name": "Georgetown",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06273dba"
+        "id": 3378644
     },
     {
         "country": "Australia",
         "name": "Canberra",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06273f97"
+        "id": 2172517
     },
     {
         "country": "Austria",
         "name": "Vienna",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06274a67"
+        "id": 2761369
     },
     {
         "country": "Azerbaijan",
         "name": "Baku",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06274c40"
+        "id": 587084
     },
     {
         "country": "Bahamas",
         "name": "Nassau",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06275044"
+        "id": 3571824
     },
     {
         "country": "Bahrain",
         "name": "Manama",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062756b7"
+        "id": 290340
     },
     {
         "country": "Bangladesh",
         "name": "Dhaka",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627665e"
+        "id": 1185241
     },
     {
         "country": "Barbados",
         "name": "Bridgetown",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06276ca2"
+        "id": 3374036
     },
     {
         "country": "Belarus",
         "name": "Minsk",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06277120"
+        "id": 625144
     },
     {
         "country": "Belgium",
         "name": "Brussels",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06277f7b"
+        "id": 2800866
     },
     {
         "country": "Belize",
         "name": "Belmopan",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06278352"
+        "id": 3582672
     },
     {
         "country": "Benin",
         "name": "Porto-Novo",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062791e1"
+        "id": 2392087
     },
     {
         "country": "Bermuda",
         "name": "Hamilton",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06279c36"
+        "id": 2190324
     },
     {
         "country": "Bhutan",
         "name": "Thimphu",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627aa03"
+        "id": 1252416
     },
     {
         "country": "Bolivia",
         "name": "Sucre",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627aac5"
+        "id": 3650960
     },
     {
         "country": "Bolivia",
         "name": "La Paz",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627af26"
+        "id": 1707324
     },
     {
         "country": "Bosnia and Herzegovina",
         "name": "Sarajevo",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627b08b"
+        "id": 3191281
     },
     {
         "country": "Botswana",
         "name": "Gaborone",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627bed1"
+        "id": 933773
     },
     {
         "country": "Brazil",
         "name": "Brasília",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627cb52"
+        "id": 3469058
     },
     {
         "country": "British Virgin Islands",
         "name": "Road Town",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627d288"
+        "id": 3577430
     },
     {
         "country": "Brunei",
         "name": "Bandar Seri Begawan",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627dce9"
+        "id": 1820906
     },
     {
         "country": "Bulgaria",
         "name": "Sofia",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627df10"
+        "id": 727011
     },
     {
         "country": "Burkina Faso",
         "name": "Ouagadougou",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627e5fd"
+        "id": 2357048
     },
     {
         "country": "Burundi",
         "name": "Bujumbura",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627e715"
+        "id": 425378
     },
     {
         "country": "Cambodia",
         "name": "Phnom Penh",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627e80c"
+        "id": 1821306
     },
     {
         "country": "Cameroon",
         "name": "Yaoundé",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627e968"
+        "id": 2220957
     },
     {
         "country": "Canada",
         "name": "Ottawa",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627f5c0"
+        "id": 4905006
     },
     {
         "country": "Cape Verde",
         "name": "Praia",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0627fd82"
+        "id": 3374333
     },
     {
         "country": "Cayman Islands",
         "name": "George Town",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06280bb3"
+        "id": 1735106
     },
     {
         "country": "Central African Republic",
         "name": "Bangui",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06281817"
+        "id": 2389853
     },
     {
         "country": "Chad",
         "name": "N'Djamena",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06281b08"
+        "id": 2427123
     },
     {
         "country": "Chile",
         "name": "Santiago",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062824fd"
+        "id": 1687801
     },
     {
         "country": "China",
         "name": "Beijing",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062831ed"
+        "id": 1816670
     },
     {
         "country": "Christmas Island",
         "name": "Flying Fish Cove",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06283f3a"
+        "id": 2078127
     },
     {
         "country": "Cocos (Keeling) Islands",
         "name": "West Island",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06283f79"
+        "id": 7304591
     },
     {
         "country": "Colombia",
         "name": "Bogotá",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062841ed"
+        "id": 3688689
     },
     {
         "country": "Comoros",
         "name": "Moroni",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062843c2"
+        "id": 921772
     },
     {
         "country": "Cook Islands",
         "name": "Avarua",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06284b44"
+        "id": 4035715
     },
     {
         "country": "Costa Rica",
         "name": "San José",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06284d7d"
+        "id": 3621849
     },
     {
         "country": "Croatia",
         "name": "Zagreb",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06284ef0"
+        "id": 6618983
     },
     {
         "country": "Cuba",
         "name": "Havana",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06285a12"
+        "id": 3553478
     },
     {
         "country": "Curaçao",
         "name": "Willemstad",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062866ca"
+        "id": 3513090
     },
     {
         "country": "Cyprus",
         "name": "Nicosia",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0628702a"
+        "id": 146268
     },
     {
         "country": "Czech Republic",
         "name": "Prague",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062877f0"
+        "id": 3067696
     },
     {
         "country": "Côte d'Ivoire",
         "name": "Yamoussoukro",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0628838a"
+        "id": 2279755
     },
     {
         "country": "Democratic Republic of the Congo",
         "name": "Kinshasa",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062885f1"
+        "id": 2314302
     },
     {
         "country": "Denmark",
         "name": "Copenhagen",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06288821"
+        "id": 2618425
     },
     {
         "country": "Djibouti",
         "name": "Djibouti",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062896fd"
+        "id": 223817
     },
     {
         "country": "Dominica",
         "name": "Roseau",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06289cc0"
+        "id": 3575635
     },
     {
         "country": "Dominican Republic",
         "name": "Santo Domingo",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0628a46f"
+        "id": 3492908
     },
     {
         "country": "East Timor (Timor-Leste)",
         "name": "Dili",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0628b364"
+        "id": 1645457
     },
     {
         "country": "Easter Island",
         "name": "Hanga Roa",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0628bb9e"
+        "id": 4030754
     },
     {
         "country": "Ecuador",
         "name": "Quito",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0628c8c8"
+        "id": 3652462
     },
     {
         "country": "Egypt",
         "name": "Cairo",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0628c987"
+        "id": 360630
     },
     {
         "country": "El Salvador",
         "name": "San Salvador",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0628d1eb"
+        "id": 3583361
     },
     {
         "country": "Equatorial Guinea",
         "name": "Malabo",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0628d823"
+        "id": 2309527
     },
     {
         "country": "Eritrea",
         "name": "Asmara",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0628e5a7"
+        "id": 343300
     },
     {
         "country": "Estonia",
         "name": "Tallinn",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0628f2d7"
+        "id": 588409
     },
     {
         "country": "Ethiopia",
         "name": "Addis Ababa",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06290256"
+        "id": 344979
     },
     {
         "country": "Falkland Islands",
         "name": "Stanley",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06290f3d"
+        "id": 3426691
     },
     {
         "country": "Faroe Islands",
         "name": "Tórshavn",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062917f0"
+        "id": 2611396
     },
     {
         "country": "Federated States of Micronesia",
         "name": "Palikir",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062917fa"
+        "id": 2081986
     },
     {
         "country": "Fiji",
         "name": "Suva",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06292611"
+        "id": 2198148
     },
     {
         "country": "Finland",
         "name": "Helsinki",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062926a5"
+        "id": 658225
     },
     {
         "country": "France",
         "name": "Paris",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062934e5"
+        "id": 2988507
     },
     {
         "country": "French Guiana",
         "name": "Cayenne",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062944b9"
+        "id": 3028097
     },
     {
         "country": "French Polynesia",
         "name": "Papeete",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062947f2"
+        "id": 4033936
     },
     {
         "country": "Gabon",
         "name": "Libreville",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0629523b"
+        "id": 2399697
     },
     {
         "country": "Gambia",
         "name": "Banjul",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0629616f"
+        "id": 2413876
     },
     {
         "country": "Georgia",
         "name": "Tbilisi",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06296ccd"
+        "id": 611717
     },
     {
         "country": "Germany",
         "name": "Berlin",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062971d3"
+        "id": 2950159
     },
     {
         "country": "Ghana",
         "name": "Accra",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062971d9"
+        "id": 2306104
     },
     {
         "country": "Gibraltar",
         "name": "Gibraltar",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062979cd"
+        "id": 2411585
     },
     {
         "country": "Greece",
         "name": "Athens",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06297d88"
+        "id": 264371
     },
     {
         "country": "Greenland",
         "name": "Nuuk",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062986d5"
+        "id": 3421319
     },
     {
         "country": "Grenada",
         "name": "St. George's",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06298880"
+        "id": 3579925
     },
     {
         "country": "Guam",
         "name": "Hagåtña",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06299436"
+        "id": 4044019
     },
     {
         "country": "Guatemala",
         "name": "Guatemala City",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb06299797"
+        "id": 3598132
     },
     {
         "country": "Guernsey",
         "name": "St. Peter Port",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0629a4ea"
+        "id": 3042287
     },
     {
         "country": "Guinea",
         "name": "Conakry",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0629af56"
+        "id": 2422465
     },
     {
         "country": "Guinea-Bissau",
         "name": "Bissau",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0629bd83"
+        "id": 1275441
     },
     {
         "country": "Guyana",
         "name": "Georgetown",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0629ccab"
+        "id": 3378644
     },
     {
         "country": "Haiti",
         "name": "Port-au-Prince",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0629d74e"
+        "id": 3718426
     },
     {
         "country": "Honduras",
         "name": "Tegucigalpa",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0629df4b"
+        "id": 3600949
     },
     {
         "country": "Hungary",
         "name": "Budapest",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0629e518"
+        "id": 3054643
     },
     {
         "country": "Iceland",
         "name": "Reykjavík",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0629f1e3"
+        "id": 3413829
     },
     {
         "country": "India",
         "name": "New Delhi",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb0629fb0f"
+        "id": 1261481
     },
     {
         "country": "Indonesia",
         "name": "Jakarta",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a038b"
+        "id": 1642911
     },
     {
         "country": "Iran",
         "name": "Tehran",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a1385"
+        "id": 112931
     },
     {
         "country": "Iraq",
         "name": "Baghdad",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a1b9f"
+        "id": 98182
     },
     {
         "country": "Ireland",
         "name": "Dublin",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a2b1c"
+        "id": 2964574
     },
     {
         "country": "Isle of Man",
         "name": "Douglas",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a3298"
+        "id": 3042237
     },
     {
         "country": "Israel",
         "name": "Jerusalem",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a32d8"
+        "id": 281184
     },
     {
         "country": "Italy",
         "name": "Rome",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a403c"
+        "id": 4219762
     },
     {
         "country": "Jamaica",
         "name": "Kingston",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a4c4f"
+        "id": 2161314
     },
     {
         "country": "Japan",
         "name": "Tokyo",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a4df6"
+        "id": 1850147
     },
     {
         "country": "Jersey",
         "name": "St. Helier",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a4e39"
+        "id": 3042091
     },
     {
         "country": "Jordan",
         "name": "Amman",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a4e49"
+        "id": 250441
     },
     {
         "country": "Kazakhstan",
         "name": "Astana",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a5393"
+        "id": 1526273
     },
     {
         "country": "Kenya",
         "name": "Nairobi",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a5a4d"
+        "id": 184745
     },
     {
         "country": "Kiribati",
         "name": "Tarawa",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a6579"
+        "id": 2110257
     },
     {
         "country": "Kosovo",
         "name": "Pristina",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a74ba"
+        "id": 786714
     },
     {
         "country": "Kuwait",
         "name": "Kuwait City",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a782c"
+        "id": 285787
     },
     {
         "country": "Kyrgyzstan",
         "name": "Bishkek",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a79e2"
+        "id": 1528675
     },
     {
         "country": "Laos",
         "name": "Vientiane",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a7f27"
+        "id": 1651944
     },
     {
         "country": "Latvia",
         "name": "Riga",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a80d7"
+        "id": 456172
     },
     {
         "country": "Lebanon",
         "name": "Beirut",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a8f4b"
+        "id": 276781
     },
     {
         "country": "Lesotho",
         "name": "Maseru",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062a97c0"
+        "id": 932505
     },
     {
         "country": "Liberia",
         "name": "Monrovia",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062aa51e"
+        "id": 2274895
     },
     {
         "country": "Libya",
         "name": "Tripoli",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062aa937"
+        "id": 252601
     },
     {
         "country": "Liechtenstein",
         "name": "Vaduz",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062aabf8"
+        "id": 3042030
     },
     {
         "country": "Lithuania",
         "name": "Vilnius",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ab1d8"
+        "id": 593116
     },
     {
         "country": "Luxembourg",
         "name": "Luxembourg",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062abcce"
+        "id": 2960316
     },
     {
         "country": "Macedonia",
         "name": "Skopje",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ac4ba"
+        "id": 785842
     },
     {
         "country": "Madagascar",
         "name": "Antananarivo",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ad118"
+        "id": 1070940
     },
     {
         "country": "Malawi",
         "name": "Lilongwe",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ad366"
+        "id": 927967
     },
     {
         "country": "Malaysia",
         "name": "Kuala Lumpur",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ae209"
+        "id": 1735161
     },
     {
         "country": "Maldives",
         "name": "Malé",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ae37f"
+        "id": 1282027
     },
     {
         "country": "Mali",
         "name": "Bamako",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ae3e1"
+        "id": 2460596
     },
     {
         "country": "Malta",
         "name": "Valletta",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062aea30"
+        "id": 2562305
     },
     {
         "country": "Marshall Islands",
         "name": "Majuro",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062aebc1"
+        "id": 2113779
     },
     {
         "country": "Mauritania",
         "name": "Nouakchott",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062afb37"
+        "id": 2377450
     },
     {
         "country": "Mauritius",
         "name": "Port Louis",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b03c9"
+        "id": 934154
     },
     {
         "country": "Mexico",
         "name": "Mexico City",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b10f1"
+        "id": 3530597
     },
     {
         "country": "Moldova",
         "name": "Chisinau",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b11b3"
+        "id": 618426
     },
     {
         "country": "Monaco",
         "name": "Monaco",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b1f1e"
+        "id": 2993458
     },
     {
         "country": "Mongolia",
         "name": "Ulaanbaatar",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b2b7e"
+        "id": 2028462
     },
     {
         "country": "Montenegro",
         "name": "Podgorica",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b2ec8"
+        "id": 3193044
     },
     {
         "country": "Montserrat",
         "name": "Plymouth",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b35dc"
+        "id": 2640194
     },
     {
         "country": "Morocco",
         "name": "Rabat",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b3b19"
+        "id": 2538475
     },
     {
         "country": "Mozambique",
         "name": "Maputo",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b48e6"
+        "id": 1040652
     },
     {
         "country": "Myanmar",
         "name": "Naypyidaw",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b4b87"
+        "id": 6611854
     },
     {
         "country": "Nagorno-Karabakh Republic",
         "name": "Stepanakert",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b5783"
+        "id": 146970
     },
     {
         "country": "Namibia",
         "name": "Windhoek",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b5a8a"
+        "id": 3352136
     },
     {
         "country": "Nauru",
         "name": "Yaren",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b5f3a"
+        "id": 2110418
     },
     {
         "country": "Nepal",
         "name": "Kathmandu",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b6068"
+        "id": 1283240
     },
     {
         "country": "Netherlands",
         "name": "Amsterdam",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b6f11"
+        "id": 2759794
     },
     {
         "country": "New Caledonia",
@@ -909,582 +897,582 @@
         "country": "New Zealand",
         "name": "Wellington",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b7917"
+        "id": 1252887
     },
     {
         "country": "Nicaragua",
         "name": "Managua",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b8683"
+        "id": 3617763
     },
     {
         "country": "Niger",
         "name": "Niamey",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b95ba"
+        "id": 2440485
     },
     {
         "country": "Nigeria",
         "name": "Abuja",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062b9fd7"
+        "id": 2352778
     },
     {
         "country": "Niue",
         "name": "Alofi",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062bae6c"
+        "id": 4036284
     },
     {
         "country": "Norfolk Island",
         "name": "Kingston",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062bb311"
+        "id": 2161314
     },
     {
         "country": "North Korea",
         "name": "Pyongyang",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062bbf3a"
+        "id": 1871859
     },
     {
         "country": "Northern Cyprus",
         "name": "Nicosia",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062bcda6"
+        "id": 146268
     },
     {
         "country": "United Kingdom Northern Ireland",
         "name": "Belfast",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062bd690"
+        "id": 2655984
     },
     {
         "country": "Northern Mariana Islands",
         "name": "Saipan",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062be4ae"
+        "id": 7828758
     },
     {
         "country": "Norway",
         "name": "Oslo",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062be5e4"
+        "id": 3143244
     },
     {
         "country": "Oman",
         "name": "Muscat",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062becfe"
+        "id": 287286
     },
     {
         "country": "Pakistan",
         "name": "Islamabad",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062bf526"
+        "id": 1176615
     },
     {
         "country": "Palau",
         "name": "Ngerulmud",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062bfaab"
+        "id": 7377604
     },
     {
         "country": "Palestine",
         "name": "Jerusalem",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c0a16"
+        "id": 281184
     },
     {
         "country": "Panama",
         "name": "Panama City",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c0c1c"
+        "id": 4167694
     },
     {
         "country": "Papua New Guinea",
         "name": "Port Moresby",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c1534"
+        "id": 2088122
     },
     {
         "country": "Paraguay",
         "name": "Asunción",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c1927"
+        "id": 3439389
     },
     {
         "country": "Peru",
         "name": "Lima",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c26e0"
+        "id": 3936456
     },
     {
         "country": "Philippines",
         "name": "Manila",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c2844"
+        "id": 1701668
     },
     {
         "country": "Pitcairn Islands",
         "name": "Adamstown",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c2f5d"
+        "id": 4030723
     },
     {
         "country": "Poland",
         "name": "Warsaw",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c390b"
+        "id": 756135
     },
     {
         "country": "Portugal",
         "name": "Lisbon",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c4633"
+        "id": 2267057
     },
     {
         "country": "Puerto Rico",
         "name": "San Juan",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c4fd1"
+        "id": 3621819
     },
     {
         "country": "Qatar",
         "name": "Doha",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c55a8"
+        "id": 290030
     },
     {
         "country": "Republic of China (Taiwan)",
         "name": "Taipei",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c5e3c"
+        "id": 1668341
     },
     {
         "country": "Republic of the Congo",
         "name": "Brazzaville",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c6cc2"
+        "id": 2260535
     },
     {
         "country": "Romania",
         "name": "Bucharest",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c7af2"
+        "id": 683506
     },
     {
         "country": "Russia",
         "name": "Moscow",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c85ae"
+        "id": 524901
     },
     {
         "country": "Rwanda",
         "name": "Kigali",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c86fe"
+        "id": 202061
     },
     {
         "country": "Saint Barthélemy",
         "name": "Gustavia",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c8c31"
+        "id": 3579132
     },
     {
         "country": "Saint Helena",
         "name": "Jamestown",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062c957f"
+        "id": 3370903
     },
     {
         "country": "Saint Kitts and Nevis",
         "name": "Basseterre",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ca540"
+        "id": 3575551
     },
     {
         "country": "Saint Lucia",
         "name": "Castries",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062cb138"
+        "id": 3576812
     },
     {
         "country": "Saint Martin",
         "name": "Marigot",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062cb19a"
+        "id": 3578851
     },
     {
         "country": "Saint Pierre and Miquelon",
         "name": "St. Pierre",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062cb577"
+        "id": 934032
     },
     {
         "country": "Saint Vincent and the Grenadines",
         "name": "Kingstown",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062cbbde"
+        "id": 3577887
     },
     {
         "country": "Samoa",
         "name": "Apia",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062cc4d0"
+        "id": 4035413
     },
     {
         "country": "San Marino",
         "name": "San Marino",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062cd066"
+        "id": 3168070
     },
     {
         "country": "Saudi Arabia",
         "name": "Riyadh",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062cdd2d"
+        "id": 108410
     },
     {
         "country": "Scotland",
         "name": "Edinburgh",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ce882"
+        "id": 2650225
     },
     {
         "country": "Senegal",
         "name": "Dakar",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062cf477"
+        "id": 2253354
     },
     {
         "country": "Serbia",
         "name": "Belgrade",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d0398"
+        "id": 792680
     },
     {
         "country": "Seychelles",
         "name": "Victoria",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d0fd0"
+        "id": 241131
     },
     {
         "country": "Sierra Leone",
         "name": "Freetown",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d1f29"
+        "id": 2409306
     },
     {
         "country": "Singapore",
         "name": "Singapore",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d2cf4"
+        "id": 1880252
     },
     {
         "country": "Sint Maarten",
         "name": "Philipsburg",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d3b8d"
+        "id": 3513392
     },
     {
         "country": "Slovakia",
         "name": "Bratislava",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d4807"
+        "id": 3060972
     },
     {
         "country": "Slovenia",
         "name": "Ljubljana",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d4b5c"
+        "id": 3196359
     },
     {
         "country": "Solomon Islands",
         "name": "Honiara",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d5a05"
+        "id": 2108502
     },
     {
         "country": "Somalia",
         "name": "Mogadishu",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d662d"
+        "id": 53654
     },
     {
         "country": "Somaliland",
         "name": "Hargeisa",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d6750"
+        "id": 57289
     },
     {
         "country": "South Africa",
         "name": "Pretoria",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d73f8"
+        "id": 964137
     },
     {
         "country": "South Georgia and the South Sandwich Islands",
         "name": "Grytviken",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d79ba"
+        "id": 3426466
     },
     {
         "country": "South Korea",
         "name": "Seoul",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d8937"
+        "id": 1835848
     },
     {
         "country": "South Ossetia",
         "name": "Tskhinvali",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062d96e5"
+        "id": 611403
     },
     {
         "country": "South Sudan South Sudan",
         "name": "Juba",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062da2c0"
+        "id": 373303
     },
     {
         "country": "Spain",
         "name": "Madrid",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062da5e1"
+        "id": 3117735
     },
     {
         "country": "Sri Lanka",
         "name": "Sri Jayawardenapura Kotte",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062dabfa"
+        "id": 1238992
     },
     {
         "country": "Sudan",
         "name": "Khartoum",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062db202"
+        "id": 379252
     },
     {
         "country": "Suriname",
         "name": "Paramaribo",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062db309"
+        "id": 3383330
     },
     {
         "country": "Swaziland",
         "name": "Mbabane",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062db479"
+        "id": 934985
     },
     {
         "country": "Sweden",
         "name": "Stockholm",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062db497"
+        "id": 2673730
     },
     {
         "country": "Switzerland",
         "name": "Bern",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062dc11e"
+        "id": 2661552
     },
     {
         "country": "Syria",
         "name": "Damascus",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062dc133"
+        "id": 170654
     },
     {
         "country": "São Tomé and Príncipe",
         "name": "São Tomé",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062dc975"
+        "id": 2410763
     },
     {
         "country": "Tajikistan",
         "name": "Dushanbe",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062dd594"
+        "id": 1221874
     },
     {
         "country": "Tanzania",
         "name": "Dodoma",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ddb79"
+        "id": 160196
     },
     {
         "country": "Thailand",
         "name": "Bangkok",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062de3f4"
+        "id": 1609350
     },
     {
         "country": "Togo",
         "name": "Lomé",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062df1e1"
+        "id": 2365267
     },
     {
         "country": "Tonga",
         "name": "Nukuʻalofa",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062df681"
+        "id": 4032402
     },
     {
         "country": "Transnistria",
         "name": "Tiraspol",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e0102"
+        "id": 617239
     },
     {
         "country": "Trinidad and Tobago",
         "name": "Port of Spain",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e0c0d"
+        "id": 3573891
     },
     {
         "country": "Tristan da Cunha",
         "name": "Edinburgh of the Seven Seas",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e0da6"
+        "id": 3370726
     },
     {
         "country": "Tunisia",
         "name": "Tunis",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e0f2c"
+        "id": 2464470
     },
     {
         "country": "Turkey",
         "name": "Ankara",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e1329"
+        "id": 323786
     },
     {
         "country": "Turkmenistan",
         "name": "Ashgabat",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e1910"
+        "id": 162183
     },
     {
         "country": "Turks and Caicos Islands",
         "name": "Cockburn Town",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e1f91"
+        "id": 3576994
     },
     {
         "country": "Tuvalu",
         "name": "Funafuti",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e274d"
+        "id": 2110394
     },
     {
         "country": "Uganda",
         "name": "Kampala",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e31d7"
+        "id": 232422
     },
     {
         "country": "Ukraine",
         "name": "Kiev",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e3882"
+        "id": 703448
     },
     {
         "country": "United Arab Emirates",
         "name": "Abu Dhabi",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e42b5"
+        "id": 292968
     },
     {
         "country": "United Kingdom; England",
         "name": "London",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e4786"
+        "id": 2643743
     },
     {
         "country": "United States",
         "name": "Washington, D.C.",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e4ae4"
+        "id": 4366164
     },
     {
         "country": "United States Virgin Islands",
         "name": "Charlotte Amalie",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e5006"
+        "id": 4795467
     },
     {
         "country": "Uruguay",
         "name": "Montevideo",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e504c"
+        "id": 3441575
     },
     {
         "country": "Uzbekistan",
         "name": "Tashkent",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e5c11"
+        "id": 1512569
     },
     {
         "country": "Vanuatu",
         "name": "Port Vila",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e65eb"
+        "id": 2135171
     },
     {
         "country": "Vatican City",
         "name": "Vatican City",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e706d"
+        "id": 6691831
     },
     {
         "country": "Venezuela",
         "name": "Caracas",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e7ab5"
+        "id": 3646738
     },
     {
         "country": "Vietnam",
         "name": "Hanoi",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e84fb"
+        "id": 1581130
     },
     {
         "country": "Wales",
         "name": "Cardiff",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e9262"
+        "id": 2653822
     },
     {
         "country": "Wallis and Futuna",
         "name": "Mata-Utu",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062e9554"
+        "id": 4034821
     },
     {
         "country": "Western Sahara",
         "name": "El Aaiún",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ea1c7"
+        "id": 2462881
     },
     {
         "country": "Yemen",
         "name": "Sanaá",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ea318"
+        "id": 71137
     },
     {
         "country": "Zambia",
         "name": "Lusaka",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ea617"
+        "id": 909137
     },
     {
         "country": "Zimbabwe",
         "name": "Harare",
         "type": "capital",
-        "id": "7b45e9950a03bd78fef5b2eb062ea7a7"
+        "id": 890299
     }
 ]

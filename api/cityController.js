@@ -3,7 +3,7 @@ const capitals = Object.freeze(require('./capitals.json').sort((a, b) => a.name.
 
 module.exports.listCapitals = (req, res) => {
     let result = capitals
-    result = result.map(city => { return { name: city.name, id: city.id } })
+    result = result.map(city => { return { id: city.id, name: city.name, country: city.country } })
     res.json({ cities: result })
 }
 
@@ -13,7 +13,7 @@ module.exports.list = (req, res) => {
         const regexp = new RegExp(req.query.q, 'i')
         result = result.filter(city => regexp.test(city.name))
     }
-    result = result.map(city => { return { id: city.id, name: city.name, country: city.country, coord: city.coord } })
+    result = result.map(city => { return { id: city.id, name: city.name, country: city.country } })
 
     res.json({
         query: req.query.q,

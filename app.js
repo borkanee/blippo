@@ -9,7 +9,6 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const port = 3000
-const fs = require("fs")
 const fetch = require('node-fetch')
 
 // Create server.

@@ -1,11 +1,12 @@
 import './city-selector.js'
-import { Circle, Rectangle, Triangle } from './shapeClasses.js'
-import { getWeatherScale, getOscillatorType, createShape, OSCILLATOR_TYPE, SHAPE_TYPES } from './settings.js'
+import { getRandom, getWeatherScale, getOscillatorType, createShape, OSCILLATOR_TYPE, SHAPE_TYPES } from './settings.js'
 
 const sketch2 = new p5(function (p) {
 
     p.setup = function () {
-        p.createCanvas(p.windowWidth, (p.windowHeight - document.querySelector('.navbar').offsetHeight))
+        p.cnv = p.createCanvas(p.windowWidth, (p.windowHeight - document.querySelector('.navbar').offsetHeight))
+
+        p.weatherInfo = []
 
         p.reverb = new p5.Reverb()
         p.reverb.set(6, 2)
@@ -22,7 +23,7 @@ const sketch2 = new p5(function (p) {
     }
 
     p.draw = function () {
-        p.background(p.random(5, 15), 10)
+        p.background(getRandom(245, 256), 10)
 
         p.objects.forEach(shape => {
             if (shape.isPlaying) {
@@ -37,6 +38,7 @@ const sketch2 = new p5(function (p) {
             p.getAudioContext().resume()
         }
 
+        p.weatherInfo = []
         p.objects = []
         p.clear()
         clearInterval(p.interval)
@@ -45,17 +47,29 @@ const sketch2 = new p5(function (p) {
         let oscillatorType = getOscillatorType(data.main.temp)
         let speed = p.map(data.wind.speed, 0, 10, 900, 250)
         let size = p.map(data.main.humidity, 1, 100, 20, 150)
-        let revLevel = p.map(data.main.humidity, 0, 100, 0, 4)
+        let revLevel = p.map(data.main.humidity, 0, 100, 0, 0)
         p.reverb.amp(revLevel)
 
+        p.weatherInfo = [
+            `${data.weather[0].main}`,
+            `Wind Speed: ${data.wind.speed} meter/sec`,
+            `Temp: ${data.main.temp} °C`,
+            `Humidity: ${data.main.humidity}%`
+        ]
+
+        p.weatherInfo.forEach(element => {
+            p.textSize(getRandom(30, 60))
+            p.fill(getRandom(0, 256), getRandom(0, 256), getRandom(0, 256))
+            p.text(element, getRandom(0, (p.width - 100)), getRandom(0, (p.height - 100)))
+        })
 
         p.interval = setInterval(() => {
             if (p.objects.length > 100) { p.objects = [] }
-            let x = p.random(0, p.width)
-            let y = p.random(0, p.height)
+            let x = getRandom(0, p.width)
+            let y = getRandom(0, p.height)
             let noteLenght = p.map(p.mouseX, 0, p.width, 1, 4)
             let randomShape = SHAPE_TYPES[Math.floor(Math.random() * SHAPE_TYPES.length)]
-            let color = p.color(p.random(0, 256), p.random(0, 256), p.random(0, 256), p.random(0, 256))
+            let color = p.color(getRandom(0, 256), getRandom(0, 256), getRandom(0, 256), getRandom(0, 256))
             let shape = createShape.call(p, randomShape, x, y, size, color, noteLenght)
 
             p.objects.push(shape)
@@ -68,8 +82,8 @@ const sketch2 = new p5(function (p) {
         let env = new p5.Env()
         let osc = new p5.Oscillator(oscillatorType)
 
-        env.setADSR(0.008, 0.2, 0.3, noteLenght)
-        env.setRange(0.5, 0.0)
+        env.setADSR(0.008, 0, 0.25, noteLenght)
+        env.setRange(0.4, 0.0)
 
         let freqIndex = p.floor(p.map(yPosition, p.height, 0, 0, scale.length))
 
@@ -81,4 +95,4 @@ const sketch2 = new p5(function (p) {
         osc.freq(scale[freqIndex])
         env.play()
     }
-}, 'sketch-holder-data')
+})

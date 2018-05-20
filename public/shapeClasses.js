@@ -1,3 +1,5 @@
+import { getRandom } from './settings.js'
+
 // Module for shapes
 export class Circle {
     constructor(x, y, diameter, color, noteLength, p) {
@@ -12,15 +14,15 @@ export class Circle {
     }
 
     move() {
-        this.x = this.x + this.p.random(-this.value, this.value)
-        this.y = this.y + this.p.random(-this.value, this.value)
+        this.x = this.x + getRandom(-this.value, this.value)
+        this.y = this.y + getRandom(-this.value, this.value)
         this.value -= this.decrement
         if (this.value < 0.1) { this.isPlaying = false }
     }
 
     show() {
         this.p.noStroke()
-        this.color.setAlpha(this.p.random(0, 256))
+        this.color.setAlpha(getRandom(0, 256))
         this.p.fill(this.color)
         this.p.ellipse(this.x, this.y, this.diameter)
     }
@@ -41,15 +43,16 @@ export class Rectangle {
     }
 
     move() {
-        this.x = this.x + this.p.random(-this.value, this.value)
-        this.y = this.y + this.p.random(-this.value, this.value)
+        this.x = this.x + getRandom(-this.value, this.value)
+        this.y = this.y + getRandom(-this.value, this.value)
         this.value -= this.decrement
         if (this.value < 0.1) { this.isPlaying = false }
     }
 
     show() {
         this.p.noStroke()
-        this.color.setAlpha(this.p.random(0, 256))
+        this.color.setAlpha(getRandom(0, 256))
+        console.log(this.color)
         this.p.rectMode(this.CENTER)
         this.p.fill(this.color)
         this.p.rect(this.x, this.y, this.w, this.l)
@@ -70,13 +73,13 @@ export class Triangle {
     }
     show() {
         this.p.noStroke()
-        this.color.setAlpha(this.p.random(0, 256))
+        this.color.setAlpha(getRandom(0, 256))
         this.p.fill(this.color)
         this.p.triangle(this.x1, this.y1, this.x1 + (this.size / 2), this.y1 - this.size, this.x1 + this.size, this.y1)
     }
     move() {
-        this.x1 = this.x1 + this.p.random(-this.value, this.value)
-        this.y1 = this.y1 + this.p.random(-this.value, this.value)
+        this.x1 = this.x1 + getRandom(-this.value, this.value)
+        this.y1 = this.y1 + getRandom(-this.value, this.value)
         this.value -= this.decrement
         if (this.value < 0.1) { this.isPlaying = false }
     }
