@@ -1,4 +1,4 @@
-import './library/jscolor.js'
+import './jscolor.js'
 import { getRandom, changeScale, createShape, MAJORSCALE } from './settings.js'
 
 const sketch1 = new p5(function (p) {
@@ -7,6 +7,8 @@ const sketch1 = new p5(function (p) {
     let cnv = p.createCanvas(p.windowWidth, (p.windowHeight - document.querySelector('.navbar').offsetHeight))
     cnv.mouseClicked(p.drawShape)
     cnv.touchEnded(p.draw)
+
+    p.frameRate(30)
 
     p.reverbSlider = document.querySelector('#reverb')
     p.shapeSizeSlider = document.querySelector('#shape-size')
@@ -18,11 +20,9 @@ const sketch1 = new p5(function (p) {
 
     p.isMobileDevice = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 
-    console.log(p.isMobileDevice)
     if (!p.isMobileDevice) {
       p.recordButton = document.createElement('button')
       p.recordButton.textContent = 'START RECORDING'
-      p.recordButton.style.width = '240px'
       p.recIsVisible = false
     }
 
@@ -61,7 +61,7 @@ const sketch1 = new p5(function (p) {
       p.getAudioContext().resume()
     }
     if (!p.recIsVisible && !p.isMobileDevice) {
-      document.querySelector('#nav-container').insertBefore(p.recordButton, document.querySelector('.navbar-toggler'))
+      document.querySelector('#record-container').appendChild(p.recordButton)
       p.recordButton.addEventListener('click', p.recordingHandler)
       p.recIsVisible = true
     }
@@ -71,14 +71,13 @@ const sketch1 = new p5(function (p) {
     let color = {
       r: p.shapeColor.jscolor.rgb[0],
       g: p.shapeColor.jscolor.rgb[1],
-      b: p.shapeColor.jscolor.rgb[2],
-      alpha: getRandom(0, 256)
+      b: p.shapeColor.jscolor.rgb[2]
     }
 
     let shapeType = p.selShapeType.value
     let oscillatorType = p.selOscType.value
 
-    let shape = createShape.call(p, shapeType, p.mouseX, p.mouseY, size, p.color(color.r, color.g, color.b, color.alpha), noteLenght)
+    let shape = createShape.call(p, shapeType, p.mouseX, p.mouseY, size, p.color(color.r, color.g, color.b), noteLenght)
 
     let socketData = {
       width: p.width,
@@ -95,7 +94,7 @@ const sketch1 = new p5(function (p) {
     p.objects.push(shape)
     p.socket.emit('drawing', socketData)
 
-    p.makeSound(p.mouseY, p.mouseX, noteLenght, oscillatorType, p.scale)
+    p.makeSound(p.mouseX, p.mouseY, noteLenght, oscillatorType, p.scale)
   }
 
   // Incoming socket.
@@ -107,18 +106,18 @@ const sketch1 = new p5(function (p) {
     let x = p.map(data.x, 0, data.width, 0, p.width)
     let y = p.map(data.y, 0, data.height, 0, p.height)
 
-    let shape = createShape.call(p, data.shapeType, x, y, data.size, p.color(data.color.r, data.color.g, data.color.b, data.color.alpha), data.noteLenght)
+    let shape = createShape.call(p, data.shapeType, x, y, data.size, p.color(data.color.r, data.color.g, data.color.b), data.noteLenght)
     p.objects.push(shape)
 
-    p.makeSound(data.y, data.x, data.noteLenght, data.osc, data.scale)
+    p.makeSound(x, y, data.noteLenght, data.osc, data.scale)
   }
 
-  p.makeSound = function (yPosition, xPosition, noteLenght, oscillatorType, scale) {
+  p.makeSound = function (xPosition, yPosition, noteLenght, oscillatorType, scale) {
     let env = new p5.Env()
     let osc = new p5.Oscillator(oscillatorType)
 
-    env.setADSR(0.008, 0, 0.1, noteLenght)
-    env.setRange(0.2, 0.0)
+    env.setADSR(0.008, 0.1, 0.1875, noteLenght)
+    env.setRange(0.3, 0.0)
 
     let freqIndex = p.floor(p.map(yPosition, p.height, 0, 0, scale.length))
 

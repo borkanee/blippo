@@ -1,17 +1,17 @@
-import './city-selector.js'
 import { getRandom, getWeatherScale, getOscillatorType, createShape, OSCILLATOR_TYPE, SHAPE_TYPES } from './settings.js'
 
 const sketch2 = new p5(function (p) {
 
     p.setup = function () {
         p.cnv = p.createCanvas(p.windowWidth, (p.windowHeight - document.querySelector('.navbar').offsetHeight))
-
-        p.weatherInfo = []
+        p.frameRate(30)
 
         p.reverb = new p5.Reverb()
         p.reverb.set(6, 2)
 
         p.objects = []
+
+        p.frameRate(30)
 
         p.socket = io.connect('http://192.168.0.2:3000/')
         p.socket.on('weather-data', p.startDrawing)
@@ -38,7 +38,7 @@ const sketch2 = new p5(function (p) {
             p.getAudioContext().resume()
         }
 
-        p.weatherInfo = []
+        let weatherInfo = []
         p.objects = []
         p.clear()
         clearInterval(p.interval)
@@ -50,40 +50,40 @@ const sketch2 = new p5(function (p) {
         let revLevel = p.map(data.main.humidity, 0, 100, 0, 0)
         p.reverb.amp(revLevel)
 
-        p.weatherInfo = [
+        weatherInfo = [
             `${data.weather[0].main}`,
             `Wind Speed: ${data.wind.speed} meter/sec`,
             `Temp: ${data.main.temp} °C`,
             `Humidity: ${data.main.humidity}%`
         ]
 
-        p.weatherInfo.forEach(element => {
+        weatherInfo.forEach(element => {
             p.textSize(getRandom(30, 60))
             p.fill(getRandom(0, 256), getRandom(0, 256), getRandom(0, 256))
             p.text(element, getRandom(0, (p.width - 100)), getRandom(0, (p.height - 100)))
         })
 
         p.interval = setInterval(() => {
-            if (p.objects.length > 100) { p.objects = [] }
+            if (p.objects.length > 50) { p.objects = [] }
             let x = getRandom(0, p.width)
             let y = getRandom(0, p.height)
             let noteLenght = p.map(p.mouseX, 0, p.width, 1, 4)
             let randomShape = SHAPE_TYPES[Math.floor(Math.random() * SHAPE_TYPES.length)]
-            let color = p.color(getRandom(0, 256), getRandom(0, 256), getRandom(0, 256), getRandom(0, 256))
+            let color = p.color(getRandom(0, 256), getRandom(0, 256), getRandom(0, 256))
             let shape = createShape.call(p, randomShape, x, y, size, color, noteLenght)
 
             p.objects.push(shape)
 
-            p.makeSound(y, x, noteLenght, scale, oscillatorType)
+            p.makeSound(x, y, noteLenght, scale, oscillatorType)
         }, speed)
     }
 
-    p.makeSound = function (yPosition, xPosition, noteLenght, scale, oscillatorType) {
+    p.makeSound = function (xPosition, yPosition, noteLenght, scale, oscillatorType) {
         let env = new p5.Env()
         let osc = new p5.Oscillator(oscillatorType)
 
-        env.setADSR(0.008, 0, 0.25, noteLenght)
-        env.setRange(0.4, 0.0)
+        env.setADSR(0.008, 0.1, 0.1875, noteLenght)
+        env.setRange(0.3, 0.0)
 
         let freqIndex = p.floor(p.map(yPosition, p.height, 0, 0, scale.length))
 

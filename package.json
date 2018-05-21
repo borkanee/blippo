@@ -2,9 +2,9 @@
   "name": "bg222ci-project",
   "version": "1.0.0",
   "description": "Project 1dv430",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "devStart": "nodemon app.js",
+    "devStart": "nodemon server.js",
     "test": "mocha"
   },
   "repository": {
@@ -26,7 +26,9 @@
   "dependencies": {
     "datalist-polyfill": "^1.12.3",
     "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
     "node-fetch": "^2.1.2",
+    "serve-favicon": "^2.5.0",
     "socket.io": "^2.1.0"
   },
   "devDependencies": {

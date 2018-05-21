@@ -1,0 +1,67 @@
+<header>
+    <div class="collapse bg-light" id="navbarHeader">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-5 col-sm-5 col-md-4 col-lg-3 py-4">
+                    <select id="select-shape" class="selectpicker form-control">
+                        <option value="circle" selected>Circle</option>
+                        <option value="rectangle">Rectangle</option>
+                        <option value="triangle">Triangle</option>
+                    </select>
+                    <p class="small-text">shape type</p>
+                    <select id="select-osc-draw" class="selectpicker form-control">
+                        <option value="sine" selected>Sine</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="sawtooth">Sawtooth</option>
+                        <option value="square">Square</option>
+                    </select>
+                    <p class="small-text">sound</p>
+                    <select id="select-scale" class="selectpicker form-control">
+                        <option value="major" selected>Major Scale</option>
+                        <option value="minor">Minor Sale</option>
+                        <option value="pentatonic">Pentatonic Scale</option>
+                    </select>
+                    <p class="small-text">scale</p>
+                </div>
+                <div class="col-4 col-sm-3 col-md-3 col-lg-2 py-4 ml-4">
+                    <ul class="list-unstyled">
+                        <li>
+                            <input class="jscolor" value="673D6E">
+                            <p class="small-text">shape color</p>
+                        </li>
+                        <li>
+                            <input class="my-slider" type="range" min="10" max="150" step="2" value="50" id="shape-size">
+                            <p class="small-text">shape size</p>
+                        </li>
+                        <li>
+                            <input class="my-slider" type="range" min="0" max="4" step="0.2" value="0" id="reverb">
+                            <p class="small-text">reverb</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-light bg-light box-shadow">
+        <div id="nav-container" class="container d-flex">
+            <button class="navbar-toggler search-margin" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="record-container" class="nav navbar-nav navbar-logo mx-auto">
+            </div>
+            <a href="/weather-music" class="navbar-brand d-flex align-items-center">
+                <strong>GO TO
+                    <span class="w">W</span>
+                    <span class="e-first">E</span>
+                    <span class="a">A</span>
+                    <span class="t">T</span>
+                    <span class="h">H</span>
+                    <span class="e">E</span>
+                    <span class="r">R</span>
+                </strong>
+            </a>
+        </div>
+    </div>
+</header>
+<script src="js/makeSounds.js" type="module"></script>

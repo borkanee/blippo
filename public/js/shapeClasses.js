@@ -52,7 +52,6 @@ export class Rectangle {
     show() {
         this.p.noStroke()
         this.color.setAlpha(getRandom(0, 256))
-        console.log(this.color)
         this.p.rectMode(this.CENTER)
         this.p.fill(this.color)
         this.p.rect(this.x, this.y, this.w, this.l)

@@ -1,7 +1,7 @@
 const template = document.createElement('template')
 template.innerHTML = `
 <div>
-<input id="cityselector" placeholder="Search city..." name="city" type="text" list="citylist">
+<input id="cityselector" placeholder="SEARCH CITY..." name="city" type="text" list="citylist">
 <label class="active" for="cityselector"></label>
 <datalist title="Choose a suggestion" id="citylist">
 </datalist>
@@ -22,6 +22,7 @@ class CitySelector extends window.HTMLElement {
 
         this.appendChild(template.content.cloneNode(true))
 
+        this.isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1
         this.lengthLetters = this.supportsDatalist ? 4 : 2
         this._input = this.querySelector('#cityselector')
 
@@ -60,8 +61,9 @@ class CitySelector extends window.HTMLElement {
         cities.innerHTML = ''
         for (let city of this.cities) {
             let option = document.createElement('option')
+            option.textContent = this.isFirefox ? `${city.name} (${city.country})` : city.country
             option.setAttribute('value', city.name)
-            //option.text = `(${city.country})`
+
             cities.appendChild(option)
         }
     }
