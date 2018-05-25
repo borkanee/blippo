@@ -10,7 +10,6 @@ const path = require('path')
 const fetch = require('node-fetch')
 const exphbs = require('express-handlebars')
 const helmet = require('helmet')
-const cors = require('cors')
 
 const port = 3000
 
@@ -30,8 +29,7 @@ app.use(helmet.contentSecurityPolicy({
             'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js',
             'https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js',
             'https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js',
-            'https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js',
-            "'sha256-sjOT6r+ACDi5AMyj6GjkLRiUvHZjGCfShvEI/GQPiKY='"],
+            'https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js'],
         styleSrc: ["'self'", 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', "'sha256-F5naBEyqgjOmK7/p7nmihRZPF9n/f9XJshmPPOJeot4='"],
         imgSrc: ["'self'", 'data:'],
         connectSrc: ["'self'", 'ws://192.168.0.2:3000/']
@@ -81,6 +79,7 @@ app.use((err, req, res, next) => {
 io.on('connection', function (socket) {
     socket.on('drawing', drawMsg)
 
+    // Send draw-data to all players.
     function drawMsg(data) {
         socket.broadcast.emit('drawing', data)
     }

@@ -13,8 +13,6 @@ const sketch2 = new p5(function (p) {
         p.cnv = p.createCanvas(p.windowWidth, (p.windowHeight - document.querySelector('.navbar').offsetHeight))
         p.frameRate(60)
 
-        p.socket = io.connect('http://192.168.0.2:3000/')
-
         p.reverb = new p5.Reverb()
         p.reverb.set(6, 2)
 
@@ -38,16 +36,20 @@ const sketch2 = new p5(function (p) {
         })
 
         p.activeColor = parseInt(document.querySelector('.btn-group .active .bg-color').value, 10)
-        document.querySelectorAll('input[type=radio]').forEach(btn => {
+        document.querySelectorAll('.bg-color-weather').forEach(btn => {
             btn.onchange = changeBGColor.bind(this)
+        })
+
+        document.querySelector('#go-play').addEventListener('click', () => {
+            p.stopWeather()
         })
 
         p.cities = document.querySelector('#city-weather')
         p.cities.addEventListener('selected', e => {
-            p.socket.emit('new-city', e.detail.id)
+            socket.emit('new-city', e.detail.id)
         })
 
-        p.socket.on('weather-data', p.startDrawing)
+        socket.on('weather-data', p.startDrawing)
     }
 
     p.draw = function () {
@@ -59,6 +61,12 @@ const sketch2 = new p5(function (p) {
                 shape.move()
             }
         })
+    }
+
+    p.stopWeather = function () {
+        p.objects = []
+        p.background(255)
+        clearInterval(p.interval)
     }
 
     p.startDrawing = function (data) {

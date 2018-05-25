@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'myFont';
+    src: url('./font.ttf') format('truetype');
+  }  
+
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family:'myFont';
+} 
+
+.navbar-toggler:focus {
+    outline:0 !important;
+}
+
+.p5Canvas {
+    display: block;
+}
+
+.jscolor {
+    width: 80px;
+    outline:0 !important;
+}
+
+.small-text {
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    border-style: none;
+    box-shadow: none;
+  }
+
+
+.rec-button {
+    width: 190px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.white {
+    background-color: white;
+    color:white;
+}
+
+.white.active {
+    background-color: white !important;
+    color:white !important;
+}
+
+.black {
+    background-color: black;
+    color: black;
+}
+
+.black.active {
+    background-color: black !important;
+    color: black !important;
+}
+
+
+/* PLAY */
+.p {
+    color:rgb(176, 58, 197);
+    font-size: 1.5rem;
+}
+.l {
+    color:rgb(81, 255, 0);
+    font-size: 1.5rem;
+}
+.a {
+    font-size: 1.5rem;
+    color:rgb(54, 212, 199)
+}
+.y {
+    color:rgb(209, 63, 131);
+    font-size: 1.5rem;
+}
+
+
+/* WEATHER */
+.w {
+    color:rgb(0, 225, 255);
+    font-size: 1.5rem;
+}
+
+.e-first {
+    color:rgb(17, 202, 226);
+    font-size: 1.5rem;
+}
+
+.a {
+    color:rgb(31, 178, 197);
+    font-size: 1.5rem;
+}
+
+.t {
+    color:rgb(44, 154, 168);
+    font-size: 1.5rem;
+}
+
+.h {
+    color:rgb(49, 132, 143);
+    font-size: 1.5rem;
+}
+
+.e {
+    color:rgb(51, 112, 121);
+    font-size: 1.5rem;
+}
+
+.r {
+    color:rgb(54, 97, 104);
+    font-size: 1.5rem;
+}
+
+ .navbar-brand:hover,
+.navbar-brand:focus {
+  background-color: rgb(253, 253, 253) !important ;
+}
