@@ -15,32 +15,5 @@ module.exports.list = (req, res) => {
     }
     result = result.map(city => { return { id: city.id, name: city.name, country: city.country } })
 
-    res.json({
-        query: req.query.q,
-        count: result.length,
-        cities: result
-    })
-}
-
-module.exports.get = (req, res) => {
-    let id = Number(req.params.id)
-
-    if (!id || Number.isNaN(id) || !Number.isInteger(id) || id <= 0) {
-        return res.status(400).json({
-            status: 400,
-            message: 'Bad Request'
-        })
-    }
-
-    let city = cities.filter(city => city.id === id).shift()
-
-
-    if (!city) {
-        return res.status(404).json({
-            status: 404,
-            message: 'Not Found'
-        })
-    }
-
-    res.json(city)
+    res.json({ cities: result })
 }

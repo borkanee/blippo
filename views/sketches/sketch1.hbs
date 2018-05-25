@@ -30,7 +30,7 @@
                             <p class="small-text">shape color</p>
                         </li>
                         <li>
-                            <input class="my-slider" type="range" min="10" max="150" step="2" value="50" id="shape-size">
+                            <input class="my-slider" type="range" min="10" max="160" step="2" value="70" id="shape-size">
                             <p class="small-text">shape size</p>
                         </li>
                         <li>
@@ -39,16 +39,26 @@
                         </li>
                     </ul>
                 </div>
+                <div class="d-flex col-3 col-md-1 col-lg-1 my-auto">
+                    <div class="mx-auto btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn white btn-secondary active">
+                            <input type="radio" class="bg-color" value="250" autocomplete="off" checked> -
+                        </label>
+                        <label class="btn black btn-secondary">
+                            <input type="radio" class="bg-color" value="6" autocomplete="off"> -
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="navbar navbar-light bg-light box-shadow">
-        <div id="nav-container" class="container d-flex">
+        <div id="nav-container" class="container d-flex justify-content-between">
             <button class="navbar-toggler search-margin" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div id="record-container" class="nav navbar-nav navbar-logo mx-auto">
+            <div id="record-container" class="nav navbar-nav rec-button mx-auto">
             </div>
             <a href="/weather-music" class="navbar-brand d-flex align-items-center">
                 <strong>GO TO
@@ -64,4 +74,6 @@
         </div>
     </div>
 </header>
-<script src="js/makeSounds.js" type="module"></script>
+<div id="blippo-container"></div>
+{{#section 'script'}}
+<script src="js/blippo.js" type="module"></script> {{/section}}

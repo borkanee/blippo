@@ -1,6 +1,13 @@
 // Module for settings.
+
 import { Circle, Rectangle, Triangle } from './shapeClasses.js'
 
+/**
+ * Function changes scale depending on select-value.
+ * 
+ * @export
+ * @param {any} e - event
+ */
 export function changeScale(e) {
     if (e.target.value == 'major') {
         this.scale = MAJORSCALE
@@ -13,6 +20,18 @@ export function changeScale(e) {
     }
 }
 
+/**
+ * Function creates different P5-shapes depending on str-value.
+ * 
+ * @export
+ * @param {string} str - String representing shapetype.
+ * @param {number} xPos - xPosition of mouse
+ * @param {number} yPos - yPosition of mouse
+ * @param {number} size - shape size
+ * @param {object} color - P5-color object
+ * @param {number} noteLenght 
+ * @returns {object} - A new shape (Circle, Rectangle or Triangle)
+ */
 export function createShape(str, xPos, yPos, size, color, noteLenght) {
     switch (str) {
         case 'circle':
@@ -24,34 +43,50 @@ export function createShape(str, xPos, yPos, size, color, noteLenght) {
     }
 }
 
-export const PENTSCALE = [
+// 2-octave Pentatonic scale
+const PENTSCALE = [
     130.81, 146.83, 164.81, 196.00, 220.00,
     261.63, 293.66, 329.63, 392.00, 440.00, 523.25
 ]
 
-export const MAJORSCALE = [
-    130.81, 146.83, 164.81, 174.61, 196.00, 220.00,
-    246.94, 261.63, 293.66, 329.63, 349.23, 392.00,
-    440.00, 493.88, 523.25
+// 2-octave Minor scale
+const MINORSCALE = [130.81, 146.83, 155.56, 174.61, 196.00, 207.65, 233.08, 261.63,
+    293.66, 311.13, 349.23, 392.00, 415.30, 466.16, 523.25
 ]
 
-export const MINORSCALE = [130.81, 146.83, 155.56, 174.61, 196.00, 207.65, 233.08, 261.63,
-    293.66, 311.13, 349.23, 392.00, 415.30, 466.16, 523.25]
-
-export const SHAPE_TYPES = Object.freeze([
-    'circle',
-    'rectangle',
-    'triangle'
-])
-
-export const OSCILLATOR_TYPE = Object.freeze({
+// Oscillator types
+const OSCILLATOR_TYPE = Object.freeze({
     SINE: 'sine',
     TRIANGLE: 'triangle',
     SAWTOOTH: 'sawtooth',
     SQUARE: 'square'
 })
 
+// 2-octave Major scale (DEFAULT)
+export const MAJORSCALE = [
+    130.81, 146.83, 164.81, 174.61, 196.00, 220.00,
+    246.94, 261.63, 293.66, 329.63, 349.23, 392.00,
+    440.00, 493.88, 523.25
+]
+
+// Enum representing different shape types.
+export const SHAPE_TYPES = Object.freeze([
+    'circle',
+    'rectangle',
+    'triangle'
+])
+
+
+
+/**
+ * Function returns oscillator type based on temperature in a city.
+ * 
+ * @export
+ * @param {number} temp - Temperature
+ * @returns {string} - String representing oscillator type.
+ */
 export function getOscillatorType(temp) {
+
     if (temp > 20) {
         return OSCILLATOR_TYPE.SINE
     }
@@ -63,10 +98,33 @@ export function getOscillatorType(temp) {
     }
     if (temp < -20) {
         return OSCILLATOR_TYPE.SQUARE
+
     }
 }
 
+/**
+ * Function changes background color.
+ * 
+ * @export
+ * @param {ChangeEvent} e - event
+ */
+export function changeBGColor(e) {
+    if (e.target.value == '6') {
+        this.background(0)
+    } if (e.target.value == '250') {
+        this.background(255)
+    }
+    this.activeColor = parseInt(e.target.value, 10)
+}
 
+
+/**
+ * Function 
+ * 
+ * @export
+ * @param {number} weatherID - Weather condition code. (https://openweathermap.org/weather-conditions)
+ * @returns {number[]} - Returns array with frequencies.
+ */
 export function getWeatherScale(weatherID) {
     switch (weatherID) {
         case 200:
@@ -133,6 +191,44 @@ export function getWeatherScale(weatherID) {
     }
 }
 
+/**
+ * Function adjusts oscillator and envelope-settings.
+ * 
+ * @export
+ * @param {number} xPosition 
+ * @param {number} yPosition 
+ * @param {number} noteLenght 
+ * @param {string} oscillatorType 
+ * @param {number[]} scale 
+ */
+export function makeSound(xPosition, yPosition, noteLenght, oscillatorType, scale) {
+    if (this.voice > 31) {
+        this.voice = 0
+    }
+
+    this.synth[this.voice].env.setRange(1, 0.0)
+    this.synth[this.voice].env.setADSR(0.01, 0, 0.25, noteLenght)
+
+    let freqIndex = this.floor(this.map(yPosition, this.height, 0, 0, scale.length))
+    this.synth[this.voice].osc.setType(oscillatorType)
+    this.synth[this.voice].osc.amp(this.synth[this.voice].env)
+    this.synth[this.voice].osc.start()
+    this.reverb.process(this.synth[this.voice].osc)
+    this.synth[this.voice].osc.freq(scale[freqIndex])
+    this.synth[this.voice].env.play()
+
+    this.voice++
+}
+
+
+/**
+ * Function returns random number between min and max.
+ * 
+ * @export
+ * @param {number} min 
+ * @param {number} max 
+ * @returns {number} 
+ */
 export function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }

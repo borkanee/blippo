@@ -1,6 +1,10 @@
 import { getRandom } from './settings.js'
 
-// Module for shapes
+/**
+ * Module for all Shape-classes.
+ * Exports Circle, Rectangle and Triangle.
+ */
+
 export class Circle {
     constructor(x, y, diameter, color, noteLength, p) {
         this.value = 4
@@ -13,6 +17,7 @@ export class Circle {
         this.isPlaying = true
     }
 
+    
     move() {
         this.x = this.x + getRandom(-this.value, this.value)
         this.y = this.y + getRandom(-this.value, this.value)

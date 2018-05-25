@@ -1,6 +1,15 @@
 <header>
     <div class="navbar navbar-light bg-light box-shadow">
-        <div id="nav-container" class="container d-flex">
+        <div id="nav-container" class="container d-flex justify-content-between">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn white btn-secondary active">
+                    <input type="radio" class="bg-color" value="250" autocomplete="off" checked> -
+                </label>
+                <label class="btn black btn-secondary">
+                    <input type="radio" class="bg-color" value="6" autocomplete="off"> -
+                </label>
+            </div>
+
             <city-selector id="city-weather"></city-selector>
 
             <a href="/" class="navbar-brand d-flex align-items-center">
@@ -11,9 +20,11 @@
                     <span class="y">Y</span>
                 </strong>
             </a>
-            </a>
         </div>
     </div>
 </header>
-<script src="/js/city-selector.js"></script>
-<script src="/js/dataVisuals.js" type="module"></script>
+<div id="blippo-weather-container"></div>
+{{#section 'script'}}
+<script src="js/city-selector.js"></script>
+<script src="js/blippoWeather.js" type="module"></script>
+<script src="/js/datalist-polyfill.js"></script> {{/section}}

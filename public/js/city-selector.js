@@ -1,11 +1,9 @@
 const template = document.createElement('template')
 template.innerHTML = `
-<div>
 <input id="cityselector" placeholder="SEARCH CITY..." name="city" type="text" list="citylist">
 <label class="active" for="cityselector"></label>
 <datalist title="Choose a suggestion" id="citylist">
 </datalist>
-</div>
 <style>
 #cityselector:focus {
     outline:0 !important;
@@ -13,6 +11,12 @@ template.innerHTML = `
 </style>
 `
 
+/**
+ * Custom element for searching cities. (No shadowRoot-encapsulation due to datalist-polyfill not working)
+ * 
+ * @class CitySelector
+ * @extends {window.HTMLElement}
+ */
 class CitySelector extends window.HTMLElement {
     constructor() {
         super()
@@ -23,13 +27,14 @@ class CitySelector extends window.HTMLElement {
         this.appendChild(template.content.cloneNode(true))
 
         this.isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1
-        this.lengthLetters = this.supportsDatalist ? 4 : 2
+        this.lengthLetters = this.supportsDatalist ? 5 : 2
         this._input = this.querySelector('#cityselector')
 
         this.cities = []
     }
 
     connectedCallback() {
+        // If NOT native datalist is supported in browser, fetch small json file with only capitals.
         if (!this.supportsDatalist) {
             window.fetch('http://192.168.0.2:3000/api/capitals').then(res => res.json()).then(json => {
                 this.cities = json.cities
@@ -63,7 +68,6 @@ class CitySelector extends window.HTMLElement {
             let option = document.createElement('option')
             option.textContent = this.isFirefox ? `${city.name} (${city.country})` : city.country
             option.setAttribute('value', city.name)
-
             cities.appendChild(option)
         }
     }
