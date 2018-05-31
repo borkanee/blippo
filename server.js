@@ -32,7 +32,7 @@ app.use(helmet.contentSecurityPolicy({
             'https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js'],
         styleSrc: ["'self'", 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', "'sha256-F5naBEyqgjOmK7/p7nmihRZPF9n/f9XJshmPPOJeot4='"],
         imgSrc: ["'self'", 'data:'],
-        connectSrc: ["'self'", 'ws://192.168.0.2:3000/']
+        connectSrc: ["'self'", 'ws://53ed192b.ngrok.io/']
     }
 }))
 
@@ -53,7 +53,7 @@ app.set('view engine', 'hbs')
 
 // Allow PhoneGap-app to access API.
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://192.168.0.2:8000');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', false);

@@ -68,7 +68,7 @@ const sketch1 = new p5(function (p) {
     p.scale = MAJORSCALE
     p.selectScale.addEventListener('change', changeScale.bind(this))
 
-    p.socket = io.connect('http://192.168.0.2:3000/')
+    p.socket = io.connect('http://53ed192b.ngrok.io')
     p.socket.on('drawing', p.drawNew)
 
     p.showInfoText()

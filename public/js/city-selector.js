@@ -36,7 +36,7 @@ class CitySelector extends window.HTMLElement {
     connectedCallback() {
         // If NOT native datalist is supported in browser, fetch small json file with only capitals.
         if (!this.supportsDatalist) {
-            window.fetch('http://192.168.0.2:3000/api/capitals').then(res => res.json()).then(json => {
+            window.fetch('http://53ed192b.ngrok.io/api/capitals').then(res => res.json()).then(json => {
                 this.cities = json.cities
                 this._updateRendering()
             })
@@ -57,7 +57,7 @@ class CitySelector extends window.HTMLElement {
         })
     }
     async search(str) {
-        let res = await window.fetch(`http://192.168.0.2:3000/api/cities/?q=${str}`)
+        let res = await window.fetch(`http://53ed192b.ngrok.io/api/cities/?q=${str}`)
         res = await res.json()
         return res.cities
     }

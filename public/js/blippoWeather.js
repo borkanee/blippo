@@ -13,7 +13,7 @@ const sketch2 = new p5(function (p) {
         p.cnv = p.createCanvas(p.windowWidth, (p.windowHeight - document.querySelector('.navbar').offsetHeight))
         p.frameRate(60)
 
-        p.socket = io.connect('http://192.168.0.2:3000/')
+        p.socket = io.connect('http://53ed192b.ngrok.io')
 
         p.reverb = new p5.Reverb()
         p.reverb.set(6, 2)

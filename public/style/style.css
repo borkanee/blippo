@@ -1,12 +1,12 @@
 @font-face {
-    font-family: 'myFont';
+    font-family: 'blippo-font';
     src: url('./font.ttf') format('truetype');
   }  
 
 body {
     padding: 0 !important;
     margin: 0 !important;
-    font-family:'myFont';
+    font-family:'blippo-font';
 } 
 
 .navbar-toggler:focus {
@@ -81,37 +81,37 @@ body {
 
 /* WEATHER */
 .w {
-    color:rgb(0, 225, 255);
+    color:rgb(0, 123, 210);
     font-size: 1.5rem;
 }
 
 .e-first {
-    color:rgb(17, 202, 226);
+    color:rgb(0, 123, 210);
     font-size: 1.5rem;
 }
 
 .a {
-    color:rgb(31, 178, 197);
+    color:rgb(0, 123, 210);
     font-size: 1.5rem;
 }
 
 .t {
-    color:rgb(44, 154, 168);
+    color:rgb(0, 123, 210);
     font-size: 1.5rem;
 }
 
 .h {
-    color:rgb(49, 132, 143);
+    color:rgb(0, 123, 210);
     font-size: 1.5rem;
 }
 
 .e {
-    color:rgb(51, 112, 121);
+    color:rgb(0, 123, 210);
     font-size: 1.5rem;
 }
 
 .r {
-    color:rgb(54, 97, 104);
+    color:rgb(0, 123, 210);
     font-size: 1.5rem;
 }
 
