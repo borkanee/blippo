@@ -14,7 +14,7 @@
     style-src 'self' 'sha256-biLFinpqYMtWHmXfkA1BPeCY0/fNt46SAZ+BBk5YUog=' 'sha256-biLFinpqYMtWHmXfkA1BPeCY0/fNt46SAZ+BBk5YUog=' 'sha256-F5naBEyqgjOmK7/p7nmihRZPF9n/f9XJshmPPOJeot4='; 
     img-src 'self' data:; 
     worker-src 'self' blob:;
-    connect-src 'self' http://192.168.0.2:3000 ws://192.168.0.2:3000 ws://192.168.0.2:8000;
+    connect-src 'self' http://192.168.0.2:3000 ws:///192.168.0.2:3000 ws://192.168.0.2:8000;
     "
     
     />
@@ -137,7 +137,7 @@
         const socket = io.connect('http://192.168.0.2:3000/')
     </script>
     <script src="js/datalist-polyfill.js"></script>
-    <script src="js/city-selector.js"></script>
+    <script src="js/city-selector.js" type="module"></script>
     <script src="js/blippoWeather.js" type="module"></script>
     <script src="js/blippo.js" type="module"></script>
 </body>

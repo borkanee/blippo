@@ -1,6 +1,7 @@
 // Visit https://p5js.org/ for more info about the P5-library
 
 import { getRandom, getWeatherScale, getOscillatorType, createShape, SHAPE_TYPES, changeBGColor, makeSound } from './settings.js'
+import { config } from './config.js'
 
 /**
  * Sketch2 for weather-sketch (P5 instance mode - https://github.com/processing/p5.js/wiki/Global-and-instance-mode)
@@ -13,7 +14,7 @@ const sketch2 = new p5(function (p) {
         p.cnv = p.createCanvas(p.windowWidth, (p.windowHeight - document.querySelector('.navbar').offsetHeight))
         p.frameRate(60)
 
-        p.socket = io.connect('http://53ed192b.ngrok.io')
+        p.socket = io.connect(config.BASE_URL)
 
         p.reverb = new p5.Reverb()
         p.reverb.set(6, 2)
