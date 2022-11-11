@@ -28,7 +28,7 @@
     "express-handlebars": "^3.0.0",
     "helmet": "^3.12.1",
     "node-fetch": "^2.1.2",
-    "socket.io": "^2.1.0"
+    "socket.io": "^2.5.0"
   },
   "devDependencies": {
     "nodemon": "^1.17.4"
